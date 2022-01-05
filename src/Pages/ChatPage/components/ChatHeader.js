@@ -1,5 +1,13 @@
 
-function ChatHeader({user}) {
+function ChatHeader() {
+  const user = {
+    id : 2,
+    username : "Richard Bathiebo",
+    lastMessage : "Salut comment ça va ?",
+    unseenMessageCount : 15,
+    createdAt : "8h:01 PM",
+    profilePic : "assets/img/patients/patient2.jpg",
+}
     return (
         <div className="chat-header">
                   <a id="back_user_list" href="javascript:void(0)" className="back-user-list">

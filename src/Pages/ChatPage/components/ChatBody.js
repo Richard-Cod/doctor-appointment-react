@@ -1,3 +1,6 @@
+import React from "react"
+import ChatPageVM from "../../../logic/ChatPageVM"
+
 function MsgAttachments() {
     return (
         <div className="chat-msg-attachments">
@@ -61,64 +64,50 @@ function IsWrittingComponent() {
     )
 }
 
-
-
-
+const chatPageVM = new ChatPageVM()
 function ChatBody() {
+    const [data, setdata] = React.useState()
+    const [loading, setloading] = React.useState(true)
+
+    React.useEffect(() => {
+        const asyncFunc = async () => {
+            const result = await chatPageVM.getContactMessages()
+            setdata(result)
+            setloading(false)
+        }
+        asyncFunc()
+    }, [])
+
+
+    const showMessages = (currentUserId) => {
+        return data.map((message) => {
+                return  <li className={`media ${currentUserId == message.userId ? "sent" : "received"}`} >
+                            {currentUserId != message.userId && <div className="avatar">
+                            <img src="assets/img/patients/patient.jpg" alt="User Image" className="avatar-img rounded-circle" />
+                            </div>
+                            }
+                            <div className="media-body">
+                                <MsgBox attachments={message.attachments} />
+                            </div>
+                         </li>
+        })
+    
+    }
+
     return (
         <div className="chat-body">
+                {loading && <h1>Loading ... </h1> }
                   <div className="chat-scroll">
-                    <ul className="list-unstyled">
-                      <li className="media sent">
-                        <div className="media-body">
-                          <MsgBox />
-                        </div>
-                      </li>
-                      <li className="media received">
-                        <div className="avatar">
-                          <img src="assets/img/patients/patient.jpg" alt="User Image" className="avatar-img rounded-circle" />
-                        </div>
-                        <div className="media-body">
-                        <MsgBox />
-                        <MsgBox attachments={1} />
-                        </div>
-                      </li>
-                      <li className="media sent">
-                        <div className="media-body">
-                        <MsgBox />
-                        <MsgBox attachments={1} />
-                         
-                        </div>
-                      </li>
-                      <li className="media received">
-                        <div className="avatar">
-                          <img src="assets/img/patients/patient.jpg" alt="User Image" className="avatar-img rounded-circle" />
-                        </div>
-                        <div className="media-body">
-                          <MsgBox />
-                        </div>
-                      </li>
+                    { data && <ul className="list-unstyled">
+                        {showMessages(1)}
                       <ChatDate />
-                      <li className="media received">
-                        <div className="avatar">
-                          <img src="assets/img/patients/patient.jpg" alt="User Image" className="avatar-img rounded-circle" />
-                        </div>
-                        <div className="media-body">
-                          <MsgBox editable={true} />
-                        </div>
-                      </li>
-                      <li className="media sent">
-                        <div className="media-body">
-                          <MsgBox editable={true} />
-                        </div>
-                      </li>
                       <li className="media received">
                         <div className="avatar">
                           <img src="assets/img/patients/patient.jpg" alt="User Image" className="avatar-img rounded-circle" />
                         </div>
                         <IsWrittingComponent />
                       </li>
-                    </ul>
+                    </ul>}
                   </div>
                 </div>
     )
