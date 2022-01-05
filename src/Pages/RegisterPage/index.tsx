@@ -3,6 +3,8 @@ import { BottomPart } from "../../components/shared/authPages";
 import Input from "../../components/shared/Input";
 import RegisterPageVM from "../../logic/RegisterPageVM";
 import AuthLayout from "../../templates/layout/AuthLayout"
+import {Link} from "react-router-dom"
+import routes from "../../constants/routes";
 
 const registerPageVM = new RegisterPageVM()
 
@@ -23,7 +25,7 @@ function Form({label} : {label : string}) {
             <Input label="Password" name="password" type="password" formik={formik} />
             <div>
               <div className="text-right">
-                <a className="forgot-link" href="login.html">Already have an account?</a>
+                <Link className="forgot-link" to={routes.login}>Already have an account?</Link>
               </div>
             </div>
             <button 

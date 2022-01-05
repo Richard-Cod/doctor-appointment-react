@@ -3,10 +3,12 @@ import ChatHeader from "./components/ChatHeader"
 import ChatFooter from "./components/ChatFooter"
 import SearchChatForm from "./components/SearchChatForm"
 import ChatUsersList from "./components/ChatUsersList"
+import BaseLayout from "../../templates/layout/BaseLayout"
 
 
 function ChatPage() {
     return (
+      <BaseLayout>
       <div className="content">
       <div className="container-fluid">
         <div className="row">
@@ -36,7 +38,8 @@ function ChatPage() {
         </div>
         {/* /Row */}
       </div>
-    </div>		
+    </div>	
+    </BaseLayout>	
     )
 }
 

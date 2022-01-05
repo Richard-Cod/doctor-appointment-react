@@ -1,9 +1,10 @@
 import { Formik, useFormik } from "formik";
 import { BottomPart } from "../../components/shared/authPages";
 import Input from "../../components/shared/Input";
+import routes from "../../constants/routes";
 import LoginPageVM from "../../logic/LoginPageVM";
 import AuthLayout from "../../templates/layout/AuthLayout"
-
+import {Link} from "react-router-dom"
 const loginPageVM = new LoginPageVM()
 
 function Form({label} : {label : string}) {
@@ -22,7 +23,7 @@ function Form({label} : {label : string}) {
             <Input label="Password" name="password" type="password" formik={formik} />
 
             <div className="text-right">
-                <a className="forgot-link" href="forgot-password.html">Forgot Password ?</a>
+                <Link className="forgot-link" to={routes.forgotPassword}>Forgot Password ?</Link>
             </div>
             <button 
                 disabled={formik.isSubmitting}
@@ -43,7 +44,7 @@ function LoginPage() {
            onClickGoogle={loginPageVM.loginWithGoogle} 
            onClickFacebook={loginPageVM.loginWithFacebook} 
         />
-                <div className="text-center dont-have">Don’t have an account? <a href="register.html">Register</a></div>
+                <div className="text-center dont-have">Don’t have an account? <Link to={routes.register}>Register</Link></div>
 
         </AuthLayout>
     )
