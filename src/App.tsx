@@ -16,14 +16,14 @@ import ForgotPasswordPage from './Pages/ForgetPasswordPage';
 import { useEffect } from 'react';
 
 import jwt_decode from "jwt-decode";
-import { LocalDataRepository } from './logic/LocalDataRepository';
+import { LocalDataRepository } from './logic/Interfaces/LocalDataRepository';
 import appConstants from './constants/app';
-import { DependencyContainer } from './logic/DependencyContainer';
 
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ResetPasswordConfirmPage from './Pages/ResetPasswordConfirmPage';
+import { DependencyContainer } from './logic/Interfaces/DependencyContainer';
   
 
 

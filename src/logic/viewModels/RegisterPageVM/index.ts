@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 import * as Yup from 'yup';
-import InMemoryAuthenticator from '../Authenticator/InMemoryAuthenticator'
-import { DependencyContainer } from '../DependencyContainer';
+import InMemoryAuthenticator from '../../Interfaces/Authenticator/InMemoryAuthenticator';
+import { DependencyContainer } from '../../Interfaces/DependencyContainer';
 
 class RegisterPageVM{
     dependencyContainer : DependencyContainer;

@@ -1,11 +1,11 @@
 import { Formik, useFormik } from "formik";
 import { BottomPart } from "../../components/shared/authPages";
 import Input from "../../components/shared/Input";
-import RegisterPageVM from "../../logic/RegisterPageVM";
 import AuthLayout from "../../templates/layout/AuthLayout"
 import {Link} from "react-router-dom"
 import routes from "../../constants/routes";
 import { useNavigate } from "react-router-dom";
+import RegisterPageVM from "../../logic/viewModels/RegisterPageVM";
 
 const registerPageVM = new RegisterPageVM()
 

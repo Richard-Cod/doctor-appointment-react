@@ -2,7 +2,7 @@ import { useFormik } from 'formik';
 import { useNavigate, useParams } from 'react-router-dom';
 import Input from '../../components/shared/Input';
 import routes from '../../constants/routes';
-import ForgotPasswordConfirmPageVM from '../../logic/ForgotPasswordConfirmPageVM';
+import ForgotPasswordConfirmPageVM from '../../logic/viewModels/ForgotPasswordConfirmPageVM';
 import AuthLayout from '../../templates/layout/AuthLayout';
 import ProfilLayout from '../../templates/layout/ProfilLayout';
 

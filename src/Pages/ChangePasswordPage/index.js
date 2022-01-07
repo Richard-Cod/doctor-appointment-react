@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 import Input from '../../components/shared/Input';
-import ChangePasswordPageVM from '../../logic/ChangePasswordPageVM';
+import ChangePasswordPageVM from '../../logic/viewModels/ChangePasswordPageVM';
 import ProfilLayout from '../../templates/layout/ProfilLayout';
 
 const changePasswordPageVM = new  ChangePasswordPageVM()

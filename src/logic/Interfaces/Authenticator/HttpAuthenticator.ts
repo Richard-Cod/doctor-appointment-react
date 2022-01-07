@@ -1,7 +1,7 @@
 import {IAuthenticator, LoginResult, RegisterResult } from "./IAuthenticator"
 import  { AxiosError, AxiosRequestConfig, AxiosResponse, AxiosResponseTransformer } from 'axios';
-import makeRequest from "../helper/makeRequest";
 import { toast } from "react-toastify";
+import makeRequest from "../../helper/makeRequest";
 
 
 class HttpAuthenticator implements IAuthenticator{

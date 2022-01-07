@@ -1,5 +1,5 @@
 import React from "react"
-import ChatPageVM from "../../../logic/ChatPageVM"
+import ChatPageVM from "../../../logic/viewModels/ChatPageVM"
 
 function MsgAttachments() {
     return (

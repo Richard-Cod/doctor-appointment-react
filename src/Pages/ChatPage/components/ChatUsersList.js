@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import ChatPageVM from "../../../logic/ChatPageVM"
+import ChatPageVM from "../../../logic/viewModels/ChatPageVM"
 import ChatLeftItem from "./ChatLeftItem"
 
 // import ChatPageVM from "../../../logic/ChatPageVM/index"

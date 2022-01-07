@@ -1,4 +1,4 @@
-import httpClient from "../httpClient"
+import httpClient from "../Interfaces/httpClient";
 
 const makeRequest = async (config , handleErrorReponse = (error) => {}) => {
       try {

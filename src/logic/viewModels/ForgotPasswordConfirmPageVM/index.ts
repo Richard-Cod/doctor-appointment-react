@@ -1,8 +1,8 @@
 import { AxiosError, AxiosRequestConfig } from 'axios';
 import { toast } from 'react-toastify';
 import * as Yup from 'yup';
-import routes from '../../constants/routes';
-import makeRequest from '../helper/makeRequest';
+import routes from '../../../constants/routes';
+import makeRequest from '../../helper/makeRequest';
 
 class ForgotPasswordConfirmPageVM{
     initialValues = {email : "admin@gmail.com"}

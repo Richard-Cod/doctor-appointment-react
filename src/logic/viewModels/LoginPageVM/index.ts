@@ -1,11 +1,8 @@
 import { toast } from 'react-toastify';
 import * as Yup from 'yup';
-import appConstants from '../../constants/app';
-import HttpAuthenticator from '../Authenticator/HttpAuthenticator';
-import {IAuthenticator} from '../Authenticator/IAuthenticator';
-import InMemoryAuthenticator from '../Authenticator/InMemoryAuthenticator'
-import { DependencyContainer } from '../DependencyContainer';
-import { LocalDataRepository } from '../LocalDataRepository';
+import appConstants from '../../../constants/app';
+import { DependencyContainer } from '../../Interfaces/DependencyContainer';
+import { LocalDataRepository } from '../../Interfaces/LocalDataRepository';
 
 
 class LoginPageVM{
