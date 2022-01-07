@@ -10,7 +10,7 @@ class ChatPageVM{
                 lastMessage : "Hey , How are youffvfvfvdfvdfvdfvdfvdfvdvdfvfdvdvf ?",
                 unseenMessageCount : 15,
                 createdAt : "8h:01 PM",
-                profilePic : "assets/img/patients/patient1.jpg",
+                profilePic : "/assets/img/patients/patient1.jpg",
             },
             {
                 id : 2,
@@ -18,7 +18,7 @@ class ChatPageVM{
                 lastMessage : "Salut comment ça va ?",
                 unseenMessageCount : 15,
                 createdAt : "8h:01 PM",
-                profilePic : "assets/img/patients/patient2.jpg",
+                profilePic : "/assets/img/patients/patient2.jpg",
             }
         ]
 

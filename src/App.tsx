@@ -13,10 +13,32 @@ import LoginPage from './Pages/LoginPage';
 import routes from './constants/routes';
 import ChangePasswordPage from './Pages/ChangePasswordPage';
 import ForgotPasswordPage from './Pages/ForgetPasswordPage';
+import { useEffect } from 'react';
 
+import jwt_decode from "jwt-decode";
+import { LocalDataRepository } from './logic/LocalDataRepository';
+import appConstants from './constants/app';
+import { DependencyContainer } from './logic/DependencyContainer';
+
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import ResetPasswordConfirmPage from './Pages/ResetPasswordConfirmPage';
+  
 
 
 function App() {
+  useEffect(() => {
+    const dependencies = new DependencyContainer()
+    const token =  dependencies.localDataRepository.get(appConstants.ACCESS_TOKEN_KEY);
+    if(token){
+      const decoded = jwt_decode(token);
+      console.log(decoded);
+      console.log("user" , decoded)
+    }
+    
+  }, [])
+
   return (
     <Router>
         <Routes>
@@ -26,7 +48,14 @@ function App() {
           <Route path={routes.register} element={<RegisterPage />} />
           <Route path={routes.changePassword} element={<ChangePasswordPage />} />
           <Route path={routes.forgotPassword} element={<ForgotPasswordPage />} />
+          <Route path={routes.resetPasswordConfirm} element={<ResetPasswordConfirmPage />} />
+
+
+          
         </Routes>
+
+
+        <ToastContainer />
     </Router>
   );
 }

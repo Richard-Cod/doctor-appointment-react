@@ -1,25 +1,30 @@
 import { useFormik } from 'formik';
+import { useNavigate, useParams } from 'react-router-dom';
 import Input from '../../components/shared/Input';
-import ChangePasswordPageVM from '../../logic/ChangePasswordPageVM';
+import routes from '../../constants/routes';
+import ResetPasswordConfirmPageVM from '../../logic/ResetPasswordConfirmPageVM';
+import AuthLayout from '../../templates/layout/AuthLayout';
 import ProfilLayout from '../../templates/layout/ProfilLayout';
 
-const changePasswordPageVM = new  ChangePasswordPageVM()
-
-
-
+const resetPasswordConfirmPageVM = new  ResetPasswordConfirmPageVM()
 function Form() {
+    const { uid , token } = useParams();
+   const navigate =  useNavigate()
+
     const formik = useFormik({
-        initialValues: changePasswordPageVM.initialValues,
-        validationSchema: changePasswordPageVM.validationSchema,
+        initialValues: resetPasswordConfirmPageVM.initialValues,
+        validationSchema: resetPasswordConfirmPageVM.validationSchema,
         onSubmit: values => {
-            alert("on submit")
+            resetPasswordConfirmPageVM.submitForm(uid , token , values.newPassword)
+            navigate(routes.login)
           // formik.setSubmitting(false)
         },
       });
+
+      
    
       return (
         <form onSubmit={formik.handleSubmit}>
-            <Input label="Old Password" name="oldPassword" formik={formik} />
             <Input label="New Password" name="newPassword" type="password" formik={formik} />
             <Input label="Confirm Password" name="confirmPassword" type="password" formik={formik} />
             <div className="submit-section">
@@ -36,12 +41,13 @@ function Form() {
 
 
 
-function ChangePasswordPage() {
+function ResetPasswordConfirmPage() {
+
     return (
-        <ProfilLayout>
-           <Form />
-        </ProfilLayout>
+        <AuthLayout>
+        <Form />
+     </AuthLayout>
     )
 }
 
-export default ChangePasswordPage
+export default ResetPasswordConfirmPage

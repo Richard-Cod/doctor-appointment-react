@@ -5,5 +5,6 @@ export default {
     chat : "/chat",
     changePassword : "/changePassword",
     forgotPassword : "/forgotPassword",
-    admin : "/admin"
+    admin : "/admin",
+    resetPasswordConfirm : "reset-password-confirm/:uid/:token"
 }

@@ -5,14 +5,14 @@ function MsgAttachments() {
     return (
         <div className="chat-msg-attachments">
             <div className="chat-attachment">
-                <img src="assets/img/img-02.jpg" alt="Attachment" />
+                <img src="/assets/img/img-02.jpg" alt="Attachment" />
                 <div className="chat-attach-caption">placeholder.jpg</div>
                 <a href="#" className="chat-attach-download">
                 <i className="fas fa-download" />
                 </a>
             </div>
             <div className="chat-attachment">
-                <img src="assets/img/img-03.jpg" alt="Attachment" />
+                <img src="/assets/img/img-03.jpg" alt="Attachment" />
                 <div className="chat-attach-caption">placeholder.jpg</div>
                 <a href="#" className="chat-attach-download">
                 <i className="fas fa-download" />
@@ -83,7 +83,7 @@ function ChatBody() {
         return data.map((message) => {
                 return  <li className={`media ${currentUserId == message.userId ? "sent" : "received"}`} >
                             {currentUserId != message.userId && <div className="avatar">
-                            <img src="assets/img/patients/patient.jpg" alt="User Image" className="avatar-img rounded-circle" />
+                            <img src="/assets/img/patients/patient.jpg" alt="User Image" className="avatar-img rounded-circle" />
                             </div>
                             }
                             <div className="media-body">
@@ -103,7 +103,7 @@ function ChatBody() {
                       <ChatDate />
                       <li className="media received">
                         <div className="avatar">
-                          <img src="assets/img/patients/patient.jpg" alt="User Image" className="avatar-img rounded-circle" />
+                          <img src="/assets/img/patients/patient.jpg" alt="User Image" className="avatar-img rounded-circle" />
                         </div>
                         <IsWrittingComponent />
                       </li>

@@ -13,13 +13,13 @@ function Navbar() {
             </span>
           </a>
           <Link to={routes.home} className="navbar-brand logo">
-            <img src="assets/img/logo.png" className="img-fluid" alt="Logo" />
+            <img src="/assets/img/logo.png" className="img-fluid" alt="Logo" />
           </Link>
         </div>
         <div className="main-menu-wrapper">
           <div className="menu-header">
             <Link to={routes.home} className="menu-logo">
-              <img src="assets/img/logo.png" className="img-fluid" alt="Logo" />
+              <img src="/assets/img/logo.png" className="img-fluid" alt="Logo" />
             </Link>
             <a id="menu_close" className="menu-close" href="javascript:void(0);">
               <i className="fas fa-times" />

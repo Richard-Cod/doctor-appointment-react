@@ -12,7 +12,7 @@ function Footer() {
                   {/* Footer Widget */}
                   <div className="footer-widget footer-about">
                     <div className="footer-logo">
-                      <img src="assets/img/footer-logo.png" alt="logo" />
+                      <img src="/assets/img/footer-logo.png" alt="logo" />
                     </div>
                     <div className="footer-about-content">
                       <p> {constants.slogan} </p>

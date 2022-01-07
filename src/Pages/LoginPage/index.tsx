@@ -5,15 +5,26 @@ import routes from "../../constants/routes";
 import LoginPageVM from "../../logic/LoginPageVM";
 import AuthLayout from "../../templates/layout/AuthLayout"
 import {Link} from "react-router-dom"
+
+import { useNavigate } from "react-router-dom";
+
+
 const loginPageVM = new LoginPageVM()
 
 function Form({label} : {label : string}) {
+  const navigate = useNavigate();
+  
     const formik = useFormik({
         initialValues: loginPageVM.initialValues,
         validationSchema: loginPageVM.userSchema,
-        onSubmit: values => {
-          loginPageVM.login(values.email , values.password)
+        onSubmit: async (values) => {
+          await loginPageVM.login(values.email , values.password)
           // formik.setSubmitting(false)
+        //   setTimeout(() => {
+        //     navigate(routes.home);
+        // }, 300);
+
+
         },
       });
    
@@ -44,10 +55,13 @@ function LoginPage() {
            onClickGoogle={loginPageVM.loginWithGoogle} 
            onClickFacebook={loginPageVM.loginWithFacebook} 
         />
-                <div className="text-center dont-have">Don’t have an account? <Link to={routes.register}>Register</Link></div>
-
+                <div className="text-center dont-have">
+                  Don’t have an account? 
+                  <Link to={routes.register}>Register</Link>
+                </div>
         </AuthLayout>
     )
 }
 
 export default LoginPage
+

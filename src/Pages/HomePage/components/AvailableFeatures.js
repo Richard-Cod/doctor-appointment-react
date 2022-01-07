@@ -21,7 +21,7 @@ import Slider from "react-slick";
         <Slider {...settings}>
           {[1,1,1,1,1,1,1,1,1,1].map((item , i) => {
             return   <div className="feature-item text-center">
-            <img src="assets/img/features/feature-01.jpg" className="img-fluid mx-auto" alt="Feature" />
+            <img src="/assets/img/features/feature-01.jpg" className="img-fluid mx-auto" alt="Feature" />
             <p>Patient {i}</p>
           </div>
           })}
@@ -37,7 +37,7 @@ function AvailableFeatures() {
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-5 features-img">
-              <img src="assets/img/features/feature.png" className="img-fluid" alt="Feature" />
+              <img src="/assets/img/features/feature.png" className="img-fluid" alt="Feature" />
             </div>
             <div className="col-md-7">
               <div className="section-header">	

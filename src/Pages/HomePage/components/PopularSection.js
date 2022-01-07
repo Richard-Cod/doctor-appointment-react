@@ -22,7 +22,7 @@ import Slider from "react-slick";
             return <div className="profile-widget">
             <div className="doc-img">
               <a href="doctor-profile.html">
-                <img className="img-fluid" alt="User Image" src="assets/img/doctors/doctor-01.jpg" />
+                <img className="img-fluid" alt="User Image" src="/assets/img/doctors/doctor-01.jpg" />
               </a>
               <a href="javascript:void(0)" className="fav-btn">
                 <i className="far fa-bookmark" />

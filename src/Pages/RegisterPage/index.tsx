@@ -5,23 +5,28 @@ import RegisterPageVM from "../../logic/RegisterPageVM";
 import AuthLayout from "../../templates/layout/AuthLayout"
 import {Link} from "react-router-dom"
 import routes from "../../constants/routes";
+import { useNavigate } from "react-router-dom";
 
 const registerPageVM = new RegisterPageVM()
 
 function Form({label} : {label : string}) {
+  const navigate = useNavigate();
+
     const formik = useFormik({
         initialValues: registerPageVM.initialValues,
         validationSchema: registerPageVM.userSchema,
         onSubmit: values => {
-          registerPageVM.register(values.name , values.password)
+          registerPageVM.register(values.email , values.password)
           // formik.setSubmitting(false)
+        //   setTimeout(() => {
+        //     navigate(routes.home);
+        // }, 300);
         },
       });
    
       return (
         <form onSubmit={formik.handleSubmit}>
-            <Input label="Name" name="name" formik={formik} />
-            <Input label="Mobile Number" name="phoneNumber" type="password" formik={formik} />
+            <Input label="Email" name="email" formik={formik} />
             <Input label="Password" name="password" type="password" formik={formik} />
             <div>
               <div className="text-right">
