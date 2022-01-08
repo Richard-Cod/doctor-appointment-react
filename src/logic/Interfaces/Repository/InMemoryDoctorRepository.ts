@@ -25,7 +25,10 @@ class InMemoryDoctorRepository implements IDoctorRepository{
             updated_at: "",
             features: [],
             services: [],
-            specializations: []
+            specializations: [],
+            educations: [],
+            awards: [],
+            experiences: []
         }
         const promise1 = new Promise<Doctor>((resolve, reject) => {
             setTimeout(() => {

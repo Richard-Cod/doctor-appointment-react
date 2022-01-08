@@ -1,6 +1,9 @@
+import { DoctorAward } from "./DoctorAward";
+import { DoctorEducation } from "./DoctorEducation";
 import { DoctorFeature } from "./DoctorFeature";
 import { DoctorServices } from "./DoctorServices";
 import { DoctorSpecialization } from "./DoctorSpecialization";
+import { DoctorWorkExperience } from "./DoctorWorkExperience";
 import { User } from "./User";
 
 interface Doctor{
@@ -18,6 +21,9 @@ interface Doctor{
 
     features : DoctorFeature[];
 
+    educations : DoctorEducation[];
+    awards : DoctorAward[];
+    experiences : DoctorWorkExperience[];
     services : DoctorServices[];
     specializations : DoctorSpecialization[];
 
