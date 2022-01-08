@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import httpClient from "../Interfaces/httpClient";
 
 const makeRequest = async (config , handleErrorReponse = (error) => {}) => {
@@ -12,12 +13,18 @@ const makeRequest = async (config , handleErrorReponse = (error) => {}) => {
           console.log(error.response.status);
           console.log(error.response.headers);
 
+          if(error.response.status == 500){
+            toast("Problème au niveau du serveur ;(")
+            throw Error("")
+          }
+
           handleErrorReponse(error)
 
         } else if (error.request) {
           // The request was made but no response was received
           // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
           // http.ClientRequest in node.js
+          toast("Impossible d'accéder au serveur ;(")
           console.log(error.request);
         } else {
           // Something happened in setting up the request that triggered an Error

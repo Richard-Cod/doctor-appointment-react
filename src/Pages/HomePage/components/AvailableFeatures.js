@@ -20,7 +20,7 @@ import Slider from "react-slick";
   return (
         <Slider {...settings}>
           {[1,1,1,1,1,1,1,1,1,1].map((item , i) => {
-            return   <div className="feature-item text-center">
+            return   <div key={i} className="feature-item text-center">
             <img src="/assets/img/features/feature-01.jpg" className="img-fluid mx-auto" alt="Feature" />
             <p>Patient {i}</p>
           </div>

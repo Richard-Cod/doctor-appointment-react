@@ -19,13 +19,13 @@ function PartieSlider() {
 
   return (
         <Slider {...settings}>
-          {[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1].map((item) => {
-            return <div className="speicality-item text-center">
+          {[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1].map((item , i) => {
+            return <div key={i} className="speicality-item text-center">
             <div  className="speicality-img mx-auto">
               <img src="/assets/img/specialities/specialities-01.png" className="img-fluid mx-auto" alt="Speciality" />
               <span><i className="fa fa-circle" aria-hidden="true" /></span>
             </div>
-            <p>Urology</p>
+            <p> Speciality {i}</p>
           </div>
           })}
         </Slider>

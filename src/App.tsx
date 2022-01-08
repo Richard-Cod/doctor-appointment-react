@@ -1,4 +1,3 @@
-import './App.css';
 import ChatPage from './Pages/ChatPage';
 import HomePage from './Pages/HomePage/HomePage';
 import RegisterPage from './Pages/RegisterPage';
@@ -24,6 +23,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ResetPasswordConfirmPage from './Pages/ResetPasswordConfirmPage';
 import { DependencyContainer } from './logic/Interfaces/DependencyContainer';
+import DoctorProfilePage from './Pages/DoctorProfilePage';
   
 
 
@@ -45,16 +45,12 @@ function App() {
           <Route path={routes.home} element={<HomePage />} />
           <Route path={routes.chat} element={<ChatPage />} />
           <Route path={routes.login} element={<LoginPage />} />
+          <Route path={routes.doctorProfile} element={<DoctorProfilePage />} />
           <Route path={routes.register} element={<RegisterPage />} />
           <Route path={routes.changePassword} element={<ChangePasswordPage />} />
           <Route path={routes.forgotPassword} element={<ForgotPasswordPage />} />
           <Route path={routes.resetPasswordConfirm} element={<ResetPasswordConfirmPage />} />
-
-
-          
         </Routes>
-
-
         <ToastContainer />
     </Router>
   );

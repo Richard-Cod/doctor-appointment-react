@@ -1,7 +1,7 @@
-import BaseLayout from '../../templates/layout/BaseLayout'
+import BaseLayout from './BaseLayout'
 
 
-function ProfileSidebar() {
+function ProfileSidebar({isDoctor , isPatient} : {isDoctor : boolean , isPatient : boolean}) {
     return (
         <div className="profile-sidebar">
         <div className="widget-profile pro-widget-content">
@@ -69,7 +69,7 @@ function ProfileSidebar() {
 
 
 
-function ProfilLayout({children}) {
+function ProfilLayout({title ,showSidebar,isDoctor ,isPatient , children} : {title : string ,showSidebar : boolean , isDoctor : boolean ,isPatient : boolean , children : any} ) {
     return (
         <BaseLayout>
 
@@ -82,10 +82,10 @@ function ProfilLayout({children}) {
                             <nav aria-label="breadcrumb" className="page-breadcrumb">
                             <ol className="breadcrumb">
                                 <li className="breadcrumb-item"><a href="index-2.html">Home</a></li>
-                                <li className="breadcrumb-item active" aria-current="page">Change Password</li>
+                                <li className="breadcrumb-item active" aria-current="page">{title}</li>
                             </ol>
                             </nav>
-                            <h2 className="breadcrumb-title">Change Password</h2>
+                            <h2 className="breadcrumb-title">{title}</h2>
                         </div>
                         </div>
                     </div>
@@ -95,22 +95,12 @@ function ProfilLayout({children}) {
                     <div className="content">
                     <div className="container-fluid">
                         <div className="row">
+                        {showSidebar &&
                         <div className="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
-                            <ProfileSidebar />
-                        </div>
+                             <ProfileSidebar isPatient isDoctor />
+                        </div>}
                         <div className="col-md-7 col-lg-8 col-xl-9">
-                            <div className="card">
-                            <div className="card-body">
-                                <div className="row">
-                                <div className="col-md-12 col-lg-6">
-                                    {/* Change Password Form */}
-
-                                    {children}
-                                    {/* /Change Password Form */}
-                                </div>
-                                </div>
-                            </div>
-                            </div>
+                            {children}
                         </div>
                         </div>
                     </div>

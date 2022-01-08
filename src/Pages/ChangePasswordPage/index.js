@@ -38,7 +38,7 @@ function Form() {
 
 function ChangePasswordPage() {
     return (
-        <ProfilLayout>
+        <ProfilLayout title="Change password">
            <Form />
         </ProfilLayout>
     )
