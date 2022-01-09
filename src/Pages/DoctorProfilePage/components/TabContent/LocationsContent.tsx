@@ -1,9 +1,10 @@
+import { DoctorLocation } from '../../../../logic/models/DoctorLocation'
 import LocationListItem from './LocationListItem'
 
-function LocationsContent() {
+function LocationsContent({locations} : {locations : DoctorLocation[]}) {
     return (
         <div role="tabpanel" id="doc_locations" className="tab-pane fade">
-                <LocationListItem/>
+                { locations.map((location) => <LocationListItem location={location} /> )}
         </div>
     )
 }

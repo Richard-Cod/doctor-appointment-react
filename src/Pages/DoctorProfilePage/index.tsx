@@ -20,8 +20,6 @@ function DoctorProfilePage() {
         setdoctor(result)
         }
         asyncFunc()
-        // setdoctor()
-        
     }, [])
 
 

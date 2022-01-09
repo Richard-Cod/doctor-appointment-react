@@ -2,13 +2,8 @@ import Rating from "../../../../components/shared/Rating"
 import { DoctorLocation } from "../../../../logic/models/DoctorLocation"
 
 
- function LocationListItem() {
-    const location : DoctorLocation = {
-        title : "title",
-        description : "description",
-        place : "place",
-        price : 200
-    }
+ function LocationListItem({location} : {location : DoctorLocation}) {
+   
     return (
         <div className="location-list">
         <div className="row">

@@ -10,9 +10,9 @@ function TabContent({doctor} : {doctor : Doctor}) {
     return (
       <div className="tab-content pt-0">
               <OverviewContent doctor={doctor} />
-              <LocationsContent />
-              <ReviewsContent  />
-              <BusinessHours />
+              <LocationsContent locations={doctor.locations} />
+              { doctor.reviews && <ReviewsContent doctorId={doctor.id}  />}
+              {doctor.openHours && <BusinessHours openHours={doctor.openHours} />}
             </div>
     )
   }

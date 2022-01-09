@@ -1,8 +1,12 @@
 import { Doctor } from "../../models/Doctor";
+import { DoctorReview } from "../../models/DoctorReview";
 import { User } from "../../models/User";
 import { IDoctorRepository } from "./IDoctorRepository";
 
 class InMemoryDoctorRepository implements IDoctorRepository{
+    getDoctorReviews(doctorId: number): Promise<DoctorReview[]> {
+        throw new Error("Method not implemented.");
+    }
     getDoctor(id : number) : Promise<Doctor>{
         const user : User = {
             email: "richard.bathiebo@gmail.com",
@@ -28,7 +32,11 @@ class InMemoryDoctorRepository implements IDoctorRepository{
             specializations: [],
             educations: [],
             awards: [],
-            experiences: []
+            experiences: [],
+            locations: [],
+            openHours: undefined,
+            reviews: undefined,
+            id: 0
         }
         const promise1 = new Promise<Doctor>((resolve, reject) => {
             setTimeout(() => {
