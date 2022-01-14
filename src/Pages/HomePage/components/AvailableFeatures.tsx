@@ -1,9 +1,24 @@
+import { useEffect, useState } from "react";
 import Slider from "react-slick";
+import { ClinicFeature } from "../../../logic/models/ClinicFeature";
+import HomePageVM from "../../../logic/viewModels/HomePageVM";
+
+const homePageVM = new HomePageVM()
 
  function PartieSlider() {
+  const [features, setfeatures] = useState<ClinicFeature[]>()
+
+  useEffect(() => {
+    const asyncFunc = async () => {
+      const result = await  homePageVM.getClinicFeatures()
+      setfeatures(result)
+    }
+    asyncFunc()
+  }, [])
+
   const settings = {
     slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToScroll: 2,
     // initialSlide:3,
     responsive: [
       {
@@ -19,10 +34,10 @@ import Slider from "react-slick";
 
   return (
         <Slider {...settings}>
-          {[1,1,1,1,1,1,1,1,1,1].map((item , i) => {
+          {features?.map((item , i) => {
             return   <div key={i} className="feature-item text-center">
-            <img src="/assets/img/features/feature-01.jpg" className="img-fluid mx-auto" alt="Feature" />
-            <p>Patient {i}</p>
+            <img src={item.image} className="img-fluid mx-auto" alt="Feature" />
+            <p>{item.description} </p>
           </div>
           })}
         </Slider>

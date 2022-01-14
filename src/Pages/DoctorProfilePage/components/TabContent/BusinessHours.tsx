@@ -24,10 +24,26 @@ const isClosed = (day : string , timeText : string) => {
   return !timeText
 }
 
+const formatHousePart = (text : string) => {
+  if(text.startsWith("0")) return text.replaceAll("0" , "")
+  return text
+}
+
 const getTimeFromTimeText = (timeText : string) => {
   timeText = timeText.trim()
   const [hoursPart , timePrecision] = timeText.split(" ")
-  return hoursPart.split(":")
+  let timeArray = hoursPart.split(":")
+  timeArray = timeArray.map((value) => formatHousePart(value))
+
+  console.log(" timeArray " , timeArray);
+  console.log(" timePrecision " , timePrecision == "PM" ? 12:0);
+  console.log(" timePrecision2 " , timePrecision == "PM" ? 12:0);
+  console.log(" timeArray22 " , Number(timeArray[0]) + timePrecision == "PM" ? 12:0 );
+  
+
+  const result = [Number(timeArray[0]) + timePrecision == "PM" ?12:0 , Number(timeArray[1]) ]
+  console.log("result " , result)
+  return result
 }
 
 const buildDateFromText = (str : string) : Date => {
@@ -51,8 +67,10 @@ const isOpenedNow = (openHours : OpenHour) => {
 
   if(todayObject){
     console.log(todayObject)
+    todayObject[0] = "monday"
+    todayObject[1] = "07:00 AM - 04:00 PM"
     if(!todayObject[1]) return false
-
+    
     return timeIsBetweenOpenOurs(todayObject[1])
   }
   return false
@@ -60,8 +78,6 @@ const isOpenedNow = (openHours : OpenHour) => {
 
 function BusinessHours({openHours} : {openHours : OpenHour}) {
   useEffect(() => {
-    isOpenedNow(openHours)
-
   }, [])
 
 

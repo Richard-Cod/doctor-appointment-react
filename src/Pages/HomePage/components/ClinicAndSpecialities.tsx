@@ -1,6 +1,21 @@
+import { useEffect, useState } from "react";
 import Slider from "react-slick";
+import { DoctorFeature } from "../../../logic/models/DoctorFeature";
+import HomePageVM from "../../../logic/viewModels/HomePageVM";
+
+const homePageVM = new HomePageVM()
 
 function PartieSlider() {
+  const [features, setfeatures] = useState<DoctorFeature[]>()
+
+  useEffect(() => {
+    const asyncFunc = async () => {
+      const result = await  homePageVM.getClinicSpecialities()
+      setfeatures(result)
+    }
+    asyncFunc()
+  }, [])
+  
   const settings = {
     slidesToShow: 4,
     slidesToScroll: 4,
@@ -19,13 +34,13 @@ function PartieSlider() {
 
   return (
         <Slider {...settings}>
-          {[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1].map((item , i) => {
+          {features?.map((item , i) => {
             return <div key={i} className="speicality-item text-center">
             <div  className="speicality-img mx-auto">
-              <img src="/assets/img/specialities/specialities-01.png" className="img-fluid mx-auto" alt="Speciality" />
+              <img src={item.image} className="img-fluid mx-auto" alt="Speciality" />
               <span><i className="fa fa-circle" aria-hidden="true" /></span>
             </div>
-            <p> Speciality {i}</p>
+            <p> {item.description}</p>
           </div>
           })}
         </Slider>

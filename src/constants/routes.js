@@ -7,5 +7,9 @@ export default {
     forgotPassword : "/forgotPassword",
     admin : "/admin",
     doctorProfile : "/doctor-profile",
-    resetPasswordConfirm : "reset-password-confirm/:uid/:token"
+    resetPasswordConfirm : "reset-password-confirm/:uid/:token",
+
+
+
+    // adminHome : ""
 }

@@ -1,8 +1,70 @@
+import { useEffect, useState } from "react";
 import Slider from "react-slick";
+import Rating from "../../../components/shared/Rating";
+import { formatImageFromBackend } from "../../../logic/helper/getImageFromBackend";
+import { Doctor } from "../../../logic/models/Doctor";
+import HomePageVM from "../../../logic/viewModels/HomePageVM";
+
+const homePageVM = new HomePageVM()
+
+function ProfileWidget({doctor} : {doctor : Doctor}) {
+  return (
+    <div className="profile-widget">
+            <div className="doc-img">
+              <a href="doctor-profile.html">
+                <img style={{maxWidth : 300}} className="img-fluid mx-auto" alt="User Image" src={formatImageFromBackend(doctor.user.profile_pic)} />
+              </a>
+              <a href="javascript:void(0)" className="fav-btn">
+                <i className="far fa-bookmark" />
+              </a>
+            </div>
+            <div className="pro-content">
+              <h3 className="title">
+                <a href="doctor-profile.html">{doctor.user.first_name} {doctor.user.last_name}</a> 
+                <i className="fas fa-check-circle verified" />
+              </h3>
+              <p className="speciality">{doctor.description}</p>
+              <Rating rating={3} />
+              <ul className="available-info">
+                <li>
+                  <i className="fas fa-map-marker-alt" /> {doctor.place}
+                </li>
+                <li>
+                  <i className="far fa-clock" /> Available on Fri, 22 Mar
+                </li>
+                <li>
+                  <i className="far fa-money-bill-alt" /> ${doctor.min_amount} - ${doctor.max_amount} 
+                  <i className="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum" />
+                </li>
+              </ul>
+              <div className="row row-sm">
+                <div className="col-6">
+                  <a href="doctor-profile.html" className="btn view-btn">View Profile</a>
+                </div>
+                <div className="col-6">
+                  <a href="booking.html" className="btn book-btn">Book Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+  )
+}
 
  function PartieSlider() {
+   const [doctors, setdoctors] = useState<Doctor[]>()
+
+   useEffect(() => {
+
+    const asyncFunc =async () => {
+      const result = await homePageVM.getDoctors();
+      setdoctors(result)
+    }
+
+    asyncFunc()
+     
+   }, [])
   const settings = {
-    slidesToShow: 3,
+    slidesToShow: 1,
     slidesToScroll: 4,
     responsive: [
       {
@@ -18,52 +80,8 @@ import Slider from "react-slick";
 
   return (
         <Slider {...settings}>
-          {[1,1,1,1,1].map((item) => {
-            return <div className="profile-widget">
-            <div className="doc-img">
-              <a href="doctor-profile.html">
-                <img className="img-fluid" alt="User Image" src="/assets/img/doctors/doctor-01.jpg" />
-              </a>
-              <a href="javascript:void(0)" className="fav-btn">
-                <i className="far fa-bookmark" />
-              </a>
-            </div>
-            <div className="pro-content">
-              <h3 className="title">
-                <a href="doctor-profile.html">Ruby Perrin</a> 
-                <i className="fas fa-check-circle verified" />
-              </h3>
-              <p className="speciality">MDS - Periodontology and Oral Implantology, BDS</p>
-              <div className="rating">
-                <i className="fas fa-star filled" />
-                <i className="fas fa-star filled" />
-                <i className="fas fa-star filled" />
-                <i className="fas fa-star filled" />
-                <i className="fas fa-star filled" />
-                <span className="d-inline-block average-rating">(17)</span>
-              </div>
-              <ul className="available-info">
-                <li>
-                  <i className="fas fa-map-marker-alt" /> Florida, USA
-                </li>
-                <li>
-                  <i className="far fa-clock" /> Available on Fri, 22 Mar
-                </li>
-                <li>
-                  <i className="far fa-money-bill-alt" /> $300 - $1000 
-                  <i className="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum" />
-                </li>
-              </ul>
-              <div className="row row-sm">
-                <div className="col-6">
-                  <a href="doctor-profile.html" className="btn view-btn">View Profile</a>
-                </div>
-                <div className="col-6">
-                  <a href="booking.html" className="btn book-btn">Book Now</a>
-                </div>
-              </div>
-            </div>
-          </div>
+          {doctors?.map((doctor) => {
+            return <ProfileWidget doctor={doctor} />
           })}
         </Slider>
   )

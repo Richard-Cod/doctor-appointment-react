@@ -7,6 +7,21 @@ import { User } from "../../models/User";
 import { IDoctorRepository } from "./IDoctorRepository";
 
 class HttpDoctorRepository implements IDoctorRepository{
+    
+    async getDoctors() : Promise<Doctor[]>{
+        const config = {method: 'get',url: '/api/doctors/',headers: {} };
+
+        const handleErrorReponse = (error : AxiosError) => {
+        const data = error.response?.data
+            if(data){
+                console.log(data)
+                toast(JSON.stringify(data))
+            }
+        }
+    
+        const result : Doctor[] = await makeRequest(config , handleErrorReponse)
+        return result
+    }
     async getDoctorReviews(doctorId: number): Promise<DoctorReview[]> {
         const config = {method: 'get',url: '/api/doctor_reviews/'+doctorId};
 

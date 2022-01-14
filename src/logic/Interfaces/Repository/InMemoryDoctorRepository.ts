@@ -4,6 +4,9 @@ import { User } from "../../models/User";
 import { IDoctorRepository } from "./IDoctorRepository";
 
 class InMemoryDoctorRepository implements IDoctorRepository{
+    getDoctors(): Promise<Doctor[]> {
+        throw new Error("Method not implemented.");
+    }
     getDoctorReviews(doctorId: number): Promise<DoctorReview[]> {
         throw new Error("Method not implemented.");
     }
