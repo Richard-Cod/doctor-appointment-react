@@ -4,7 +4,7 @@ import { Message } from "../../models/Message";
 
 interface IChatRepository{
     getContacts() : Promise<Contact[]>
-    getContactsMessages(contactId : string) : Promise<Message[]>
+    getContactsMessages(contactId : number) : Promise<Message[]>
 }
 
 export type {IChatRepository}

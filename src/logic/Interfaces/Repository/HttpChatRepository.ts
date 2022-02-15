@@ -16,7 +16,7 @@ class HttpChatRepository implements IChatRepository{
         return promise1
     }
 
-    getContactsMessages(contactId : string): Promise<Message[]> {
+    getContactsMessages(contactId : number | string): Promise<Message[]> {
         const user : User = {
             email: "richard.bathiebo@gmail.com",
             gender: "Male",

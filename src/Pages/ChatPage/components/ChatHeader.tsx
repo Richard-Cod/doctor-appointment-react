@@ -1,13 +1,6 @@
+import { User } from "../../../logic/models/User"
 
-function ChatHeader() {
-  const user = {
-    id : 2,
-    username : "Richard Bathiebo",
-    lastMessage : "Salut comment ça va ?",
-    unseenMessageCount : 15,
-    createdAt : "8h:01 PM",
-    profilePic : "assets/img/patients/patient2.jpg",
-}
+function ChatHeader({user} : {user : User}) {
     return (
         <div className="chat-header">
                   <a id="back_user_list" href="" className="back-user-list">
@@ -15,14 +8,14 @@ function ChatHeader() {
                   </a>
                   <div className="media">
                     <div className="media-img-wrap">
-                      <div className={`avatar ${!user.online && "avatar-online"}`}>
-                        <img src="assets/img/patients/patient.jpg" alt="User Image" className="avatar-img rounded-circle" />
+                      <div className={`avatar ${true && "avatar-online"}`}>
+                        <img src={user.profile_pic} alt="User Image" className="avatar-img rounded-circle" />
                       </div>
                     </div>
                     
                     <div className="media-body">
-                      <div className="user-name">{user.username}</div>
-                      {!user.online && <div className="user-status">online</div>}
+                      <div className="user-name">{user.first_name + " " + user.last_name}</div>
+                      {true && <div className="user-status">online</div>}
                     </div>
                   </div>
                   <div className="chat-options">

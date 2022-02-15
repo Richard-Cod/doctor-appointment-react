@@ -8,7 +8,7 @@ import { RootState } from "../../app/store"
 import { useDispatch, useSelector } from "react-redux"
 import React , {useEffect, useState} from "react"
 import ChatPageVM from "../../logic/viewModels/ChatPageVM"
-import { setContacts } from "../../redux/chatWithDoctor/chatWithDoctor"
+import { setContactMessage, setContacts } from "../../redux/chatWithDoctor/chatWithDoctor"
 
 const chatPageVM = new ChatPageVM()
 
@@ -16,7 +16,8 @@ function ChatPage() {
   const contactList = useSelector((state: RootState) => state.chatWithDoctor.contacts)
   const currentChattingUser = useSelector((state: RootState) => state.chatWithDoctor.currentChattingUser)
   const contactListFiltered = useSelector((state: RootState) => state.chatWithDoctor.contactsFiltered)
-  const [contactListShowed, setcontactListShowed] = useState()
+  const contactMessages = useSelector((state: RootState) => state.chatWithDoctor.contactMessages)
+
   
   const dispatch = useDispatch()
     useEffect(() => {
@@ -26,6 +27,16 @@ function ChatPage() {
         }
         asyncFunc()
     }, [])
+
+    useEffect(() => {
+      const asyncFunc = async () => {
+        if(currentChattingUser){
+          const result = await chatPageVM.getContactMessages(currentChattingUser.user_id);
+          dispatch(setContactMessage(result))
+        }
+      }
+      asyncFunc()
+  }, [currentChattingUser])
     
     return (
       <BaseLayout>
@@ -48,10 +59,10 @@ function ChatPage() {
               {/* /Chat Left */}
               {/* Chat Right */}
               <div className="chat-cont-right">
-                <h6 className="ml-4">Choose someone</h6>
-                {currentChattingUser && <div>
-                  <ChatHeader />
-                <ChatBody />
+                {!currentChattingUser && !contactMessages && <h6 className="ml-4">Choose someone</h6>}
+                {currentChattingUser && contactMessages && <div>
+                  <ChatHeader user={currentChattingUser} />
+                  <ChatBody messages={contactMessages} currentChattingUserId={currentChattingUser.user_id}  />
                   </div>
                   }
                 {/* <ChatFooter /> */}

@@ -1,17 +1,20 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Contact } from '../../logic/models/Contact'
+import { Message } from '../../logic/models/Message'
 import { User } from '../../logic/models/User'
 
 export interface ChatWithDoctorState {
   contacts: Contact[] | undefined,
   contactsFiltered: Contact[] | undefined,
-  currentChattingUser : User | undefined
+  currentChattingUser : User | undefined,
+  contactMessages : Message[] | undefined,
 }
 
 const initialState: ChatWithDoctorState = {
   contacts: undefined,
   contactsFiltered: undefined,
-  currentChattingUser: undefined
+  currentChattingUser: undefined,
+  contactMessages : undefined
 }
 
 export const chatWithDoctorSlice = createSlice({
@@ -28,10 +31,13 @@ export const chatWithDoctorSlice = createSlice({
     setCurrentChattingUser: (state, action: PayloadAction<User>) => {
       state.currentChattingUser = action.payload
     },
+    setContactMessage: (state, action: PayloadAction<Message[]>) => {
+      state.contactMessages = action.payload
+    },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { setContacts , setContactsFiltered } = chatWithDoctorSlice.actions
+export const { setContacts , setContactsFiltered , setCurrentChattingUser ,setContactMessage} = chatWithDoctorSlice.actions
 
 export default chatWithDoctorSlice.reducer

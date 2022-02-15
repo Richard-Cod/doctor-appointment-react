@@ -52,7 +52,7 @@ class InMemoryChatRepository implements IChatRepository{
         return promise1
     }
 
-    getContactsMessages(contactId : string): Promise<Message[]> {
+    getContactsMessages(contactId : number | string): Promise<Message[]> {
         
         const messageData : Message[] = [
             {

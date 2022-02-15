@@ -25,7 +25,7 @@ class ChatPageVM{
        return data
     }
 
-    async getContactMessages(contactId : string){
+    async getContactMessages(contactId : number){
         const data = await this.dependencyContainer.chatRepository.getContactsMessages(contactId)
         return data
     }

@@ -1,5 +1,7 @@
 import React from "react"
+import { Message } from "../../../logic/models/Message"
 import ChatPageVM from "../../../logic/viewModels/ChatPageVM"
+
 
 function MsgAttachments() {
     return (
@@ -22,7 +24,7 @@ function MsgAttachments() {
     )
 }
 
-function MsgBox({attachments , editable}) {
+function MsgBox({attachments , editable} : {attachments : any , editable : any}) {
     return (
         <div className="msg-box">
             <div>
@@ -65,29 +67,18 @@ function IsWrittingComponent() {
 }
 
 const chatPageVM = new ChatPageVM()
-function ChatBody() {
-    const [data, setdata] = React.useState()
-    const [loading, setloading] = React.useState(true)
+function ChatBody({messages , currentChattingUserId} : {messages : Message[] ,currentChattingUserId : number | string }) {
 
-    React.useEffect(() => {
-        const asyncFunc = async () => {
-            const result = await chatPageVM.getContactMessages()
-            setdata(result)
-            setloading(false)
-        }
-        asyncFunc()
-    }, [])
-
-
-    const showMessages = (currentUserId) => {
-        return data.map((message , i) => {
-                return  <li key={i} className={`media ${currentUserId == message.userId ? "sent" : "received"}`} >
-                            {currentUserId != message.userId && <div className="avatar">
-                            <img src="/assets/img/patients/patient.jpg" alt="User Image" className="avatar-img rounded-circle" />
+    const showMessages = (currentUserId : number | string) => {
+        return messages.map((message , i) => {
+                return  <li key={i} className={`media ${currentUserId == message.user.user_id ? "sent" : "received"}`} >
+                            {currentUserId != message.user.user_id && <div className="avatar">
+                            <img src={message.user.profile_pic} alt="User Image" className="avatar-img rounded-circle" />
                             </div>
                             }
                             <div className="media-body">
-                                <MsgBox attachments={message.attachments} />
+                                <MsgBox attachments={null} editable={undefined} />
+                                {/* <MsgBox attachments={message.attachments} editable={undefined} /> */}
                             </div>
                          </li>
         })
@@ -96,10 +87,10 @@ function ChatBody() {
 
     return (
         <div className="chat-body">
-                {loading && <h1>Loading ... </h1> }
+                {/* {loading && <h1>Loading ... </h1> } */}
                   <div className="chat-scroll">
-                    { data && <ul className="list-unstyled">
-                        {showMessages(1)}
+                    { messages && <ul className="list-unstyled">
+                        {showMessages(currentChattingUserId)}
                       <ChatDate />
                       <li className="media received">
                         <div className="avatar">
