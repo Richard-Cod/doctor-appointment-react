@@ -1,8 +1,9 @@
-class ChatPageVM{
-    constructor(){
-    }
+import { Doctor } from "../../models/Doctor";
+import { Message } from "../../models/Message";
+import { IChatRepository } from "./IChatRepository";
 
-    getContacts(){
+class ChatRepository implements IChatRepository{
+    getContacts(): Promise<any> {
         const data = [
             {
                 id : 1 ,
@@ -26,14 +27,12 @@ class ChatPageVM{
             setTimeout(() => {
               resolve(data);
             }, 300);
-          });
-
-
+        });
         return promise1
     }
 
-    getContactMessages(contactId){
-        const messageData = [
+    getContactsMessages(contactId : string): Promise<Message[]> {
+        const messageData : Message[] = [
             {
                 userId : 1,
                 content : "Bonjour",
@@ -47,13 +46,19 @@ class ChatPageVM{
             {
                 userId : 2,
                 content : "Regarde ces photos",
-                attachments : 1,
                 createdAt : "8h01 AM",
             },
         ]
         
-        return messageData;
+        const promise1 = new Promise<Message[]>((resolve, reject) => {
+            setTimeout(() => {
+              return resolve(messageData);
+            }, 300);
+        });
+
+        return promise1
     }
 }
 
-export default ChatPageVM
+export {ChatRepository}
+

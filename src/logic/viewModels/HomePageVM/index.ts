@@ -1,4 +1,4 @@
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import { DependencyContainer } from '../../Interfaces/DependencyContainer';
 import { ClinicFeature } from '../../models/ClinicFeature';
 import { DoctorFeature } from '../../models/DoctorFeature';
@@ -34,7 +34,7 @@ class HomePageVM{
               image : "assets/img/features/feature-05.jpg"
           }
         ];
-        toast("On a chargé les getClinicFeatures")
+        // toast("On a chargé les getClinicFeatures")
         return result
       }
 
@@ -62,14 +62,14 @@ class HomePageVM{
             image : "assets/img/specialities/specialities-05.png"
         }
       ];
-      toast("On a chargé les getClinicSpecialities")
+    //   toast("On a chargé les getClinicSpecialities")
       return result
     }
 
 
     getDoctors = async () => {
         const result  = await  this.dependencyContainer.doctorRepository.getDoctors();
-        toast("On a chargé la liste des docteurs")
+        // toast("On a chargé la liste des docteurs")
         return result
       }
 
