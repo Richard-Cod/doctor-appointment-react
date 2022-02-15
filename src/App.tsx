@@ -24,10 +24,13 @@ import 'react-toastify/dist/ReactToastify.css';
 import ResetPasswordConfirmPage from './Pages/ResetPasswordConfirmPage';
 import { DependencyContainer } from './logic/Interfaces/DependencyContainer';
 import DoctorProfilePage from './Pages/DoctorProfilePage';
+import { useDispatch } from 'react-redux';
+import { setUser } from './redux/user/userSlice';
   
 
 
 function App() {
+  const dispatch = useDispatch()
   useEffect(() => {
     const dependencies = new DependencyContainer()
     const token =  dependencies.localDataRepository.get(appConstants.ACCESS_TOKEN_KEY);
@@ -35,6 +38,10 @@ function App() {
       const decoded = jwt_decode(token);
       console.log(decoded);
       console.log("user" , decoded)
+      // alert(decoded)
+      dispatch(setUser())
+      
+
     }
     
   }, [])

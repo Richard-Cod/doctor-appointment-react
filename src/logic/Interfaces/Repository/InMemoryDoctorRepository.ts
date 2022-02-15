@@ -16,8 +16,8 @@ class InMemoryDoctorRepository implements IDoctorRepository{
             gender: "Male",
             first_name: "Richard",
             last_name: "Bathiebo",
-            profile_pic: ""
-
+            profile_pic: "",
+            user_id: 1
         }
         const result : Doctor = {
             user: user,

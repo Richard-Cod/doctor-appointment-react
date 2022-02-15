@@ -10,7 +10,7 @@ function ChatHeader() {
 }
     return (
         <div className="chat-header">
-                  <a id="back_user_list" href="javascript:void(0)" className="back-user-list">
+                  <a id="back_user_list" href="" className="back-user-list">
                     <i className="material-icons">chevron_left</i>
                   </a>
                   <div className="media">
@@ -26,13 +26,13 @@ function ChatHeader() {
                     </div>
                   </div>
                   <div className="chat-options">
-                    <a href="javascript:void(0)" data-toggle="modal" data-target="#voice_call">
+                    <a href="" data-toggle="modal" data-target="#voice_call">
                       <i className="material-icons">local_phone</i>
                     </a>
-                    <a href="javascript:void(0)" data-toggle="modal" data-target="#video_call">
+                    <a href="" data-toggle="modal" data-target="#video_call">
                       <i className="material-icons">videocam</i>
                     </a>
-                    <a href="javascript:void(0)">
+                    <a href="">
                       <i className="material-icons">more_vert</i>
                     </a>
                   </div>

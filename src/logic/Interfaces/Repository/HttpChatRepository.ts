@@ -3,46 +3,10 @@ import { Doctor } from "../../models/Doctor";
 import { Message } from "../../models/Message";
 import { User } from "../../models/User";
 import { IChatRepository } from "./IChatRepository";
-const user : User = {
-    email: "richard.bathiebo@gmail.com",
-    gender: "Male",
-    first_name: "Richard",
-    last_name: "Bathiebo",
-    profile_pic: "https://redux-toolkit.js.org/img/redux.svg",
-    user_id: 1
-}
-const user2 : User = {
-    email: "richard.bathiebo@gmail.com",
-    gender: "Male",
-    first_name: "Cristine",
-    last_name: "Nikita",
-    profile_pic: "http://localhost:3000/assets/img/logo.png",
-    user_id: 2
-}
 
-
-class InMemoryChatRepository implements IChatRepository{
+class HttpChatRepository implements IChatRepository{
     getContacts(): Promise<Contact[]> {
-       const data : Contact[] = [
-           {
-               user,
-               lastMessage : {
-                   user,
-                   content: "Le contenu",
-                   createdAt: "8H09"
-               }
-
-           },
-           {
-            user:user2,
-            lastMessage : {
-                user,
-                content: "Le contenu",
-                createdAt: "8H09"
-            }
-
-        }
-       ]
+       const data : Contact[] = []
 
         const promise1 = new Promise<Contact[]>((resolve, reject) => {
             setTimeout(() => {
@@ -53,7 +17,14 @@ class InMemoryChatRepository implements IChatRepository{
     }
 
     getContactsMessages(contactId : string): Promise<Message[]> {
-        
+        const user : User = {
+            email: "richard.bathiebo@gmail.com",
+            gender: "Male",
+            first_name: "Richard",
+            last_name: "Bathiebo",
+            profile_pic: "",
+            user_id: 1
+        }
         const messageData : Message[] = [
             {
                 user,
@@ -82,5 +53,5 @@ class InMemoryChatRepository implements IChatRepository{
     }
 }
 
-export {InMemoryChatRepository}
+export {HttpChatRepository}
 

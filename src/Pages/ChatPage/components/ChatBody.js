@@ -80,8 +80,8 @@ function ChatBody() {
 
 
     const showMessages = (currentUserId) => {
-        return data.map((message) => {
-                return  <li className={`media ${currentUserId == message.userId ? "sent" : "received"}`} >
+        return data.map((message , i) => {
+                return  <li key={i} className={`media ${currentUserId == message.userId ? "sent" : "received"}`} >
                             {currentUserId != message.userId && <div className="avatar">
                             <img src="/assets/img/patients/patient.jpg" alt="User Image" className="avatar-img rounded-circle" />
                             </div>

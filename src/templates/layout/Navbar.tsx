@@ -1,11 +1,20 @@
 import constants from "../../constants/site"
 import {Link} from 'react-router-dom'
 import routes from "../../constants/routes"
+
+import { useDispatch, useSelector } from "react-redux"
+import { RootState } from "../../app/store"
+import { increment } from "../../redux/counter/counterSlice"
+
+
 function Navbar() {
+  const count = useSelector((state: RootState) => state.counter.value)
+  const dispatch = useDispatch()
+  
     return (
         <nav className="navbar navbar-expand-lg header-nav">
         <div className="navbar-header">
-          <a id="mobile_btn" href="javascript:void(0);">
+          <a id="mobile_btn" href="">
             <span className="bar-icon">
               <span />
               <span />
@@ -21,7 +30,7 @@ function Navbar() {
             <Link to={routes.home} className="menu-logo">
               <img src="/assets/img/logo.png" className="img-fluid" alt="Logo" />
             </Link>
-            <a id="menu_close" className="menu-close" href="javascript:void(0);">
+            <a id="menu_close" className="menu-close" href="">
               <i className="fas fa-times" />
             </a>
           </div>
@@ -59,6 +68,8 @@ function Navbar() {
                 <li><Link to={routes.changePassword}>Change Password</Link></li>
               </ul>
             </li>	
+
+            
             {/* <li className="has-submenu">
               <a href="#">Pages <i className="fas fa-chevron-down" /></a>
               <ul className="submenu">
@@ -83,6 +94,7 @@ function Navbar() {
             <li>
               <Link to={routes.admin} target="_blank">Admin</Link>
             </li>
+          
             <li className="login-link">
               <Link to={routes.login}>Login / Signup</Link>
             </li>
@@ -101,6 +113,10 @@ function Navbar() {
           <li className="nav-item">
             <Link className="nav-link header-login" to={routes.login}>login / Signup </Link>
           </li>
+
+          
+
+        
         </ul>
       </nav>
     )

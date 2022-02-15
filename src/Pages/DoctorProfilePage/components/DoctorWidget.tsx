@@ -40,7 +40,7 @@ function DoctorWidget({doctor} : {doctor : Doctor}) {
                   <span className="d-inline-block average-rating">(35)</span>
                 </div>
                 <div className="clinic-details">
-                  <p className="doc-location"><i className="fas fa-map-marker-alt" /> {doctor.place} - <a href="javascript:void(0);">Get Directions</a></p>
+                  <p className="doc-location"><i className="fas fa-map-marker-alt" /> {doctor.place} - <a href="">Get Directions</a></p>
                   <ul className="clinic-gallery">
                     {doctor.features.map((feature) => <DoctorFeatureImage feature={feature} /> )}
                   </ul>
@@ -60,16 +60,16 @@ function DoctorWidget({doctor} : {doctor : Doctor}) {
                 </ul>
               </div>
               <div className="doctor-action">
-                <a href="javascript:void(0)" className="btn btn-white fav-btn">
+                <a href="" className="btn btn-white fav-btn">
                   <i className="far fa-bookmark" />
                 </a>
                 <a href="chat.html" className="btn btn-white msg-btn">
                   <i className="far fa-comment-alt" />
                 </a>
-                <a href="javascript:void(0)" className="btn btn-white call-btn" data-toggle="modal" data-target="#voice_call">
+                <a href="" className="btn btn-white call-btn" data-toggle="modal" data-target="#voice_call">
                   <i className="fas fa-phone" />
                 </a>
-                <a href="javascript:void(0)" className="btn btn-white call-btn" data-toggle="modal" data-target="#video_call">
+                <a href="" className="btn btn-white call-btn" data-toggle="modal" data-target="#video_call">
                   <i className="fas fa-video" />
                 </a>
               </div>

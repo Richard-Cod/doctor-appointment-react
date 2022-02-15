@@ -1,6 +1,7 @@
+import { User } from "./User";
 
 interface Message{
-    userId: number,
+    user: User,
     content : string
     createdAt : string,
 }

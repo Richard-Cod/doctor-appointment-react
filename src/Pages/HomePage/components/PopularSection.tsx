@@ -14,7 +14,7 @@ function ProfileWidget({doctor} : {doctor : Doctor}) {
               <a href="doctor-profile.html">
                 <img style={{maxWidth : 300}} className="img-fluid mx-auto" alt="User Image" src={formatImageFromBackend(doctor.user.profile_pic)} />
               </a>
-              <a href="javascript:void(0)" className="fav-btn">
+              <a href="" className="fav-btn">
                 <i className="far fa-bookmark" />
               </a>
             </div>

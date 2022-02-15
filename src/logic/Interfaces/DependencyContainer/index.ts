@@ -5,7 +5,7 @@ import { InMemoryDoctorRepository } from "../Repository/InMemoryDoctorRepository
 import { IDoctorRepository } from "../Repository/IDoctorRepository";
 import { HttpDoctorRepository } from "../Repository/HttpDoctorRepository";
 import { IChatRepository } from "../Repository/IChatRepository";
-import { ChatRepository } from "../Repository/InMemoryChatRepository";
+import { InMemoryChatRepository } from "../Repository/InMemoryChatRepository";
 
 class DependencyContainer{
     authenticator : IAuthenticator
@@ -17,7 +17,7 @@ class DependencyContainer{
         this.authenticator = new HttpAuthenticator()
         this.localDataRepository = new LocalDataRepository()
         this.doctorRepository = new HttpDoctorRepository()
-        this.chatRepository = new ChatRepository()
+        this.chatRepository = new InMemoryChatRepository()
     }
 
 }

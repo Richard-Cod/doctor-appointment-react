@@ -14,7 +14,7 @@ import { DoctorLocation } from "../../../../logic/models/DoctorLocation"
               <p className="doc-speciality">{location.description}</p>
               <Rating rating={3} />
               <div className="clinic-details mb-0">
-                <h5 className="clinic-direction"> <i className="fas fa-map-marker-alt" /> {location.place} <br /><a href="javascript:void(0);">Get Directions</a></h5>
+                <h5 className="clinic-direction"> <i className="fas fa-map-marker-alt" /> {location.place} <br /><a href="">Get Directions</a></h5>
                 <ul>
                   <li>
                     <a href="assets/img/features/feature-01.jpg" data-fancybox="gallery2">
