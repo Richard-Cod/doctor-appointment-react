@@ -40,8 +40,6 @@ function App() {
       console.log("user" , decoded)
       // alert(decoded)
       dispatch(setUser())
-      
-
     }
     
   }, [])
