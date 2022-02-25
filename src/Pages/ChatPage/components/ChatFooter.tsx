@@ -27,7 +27,6 @@ function ChatFooter() {
             dispatch(addNewMessage(msg))
         }
     }
-
     const handleClick = () => {
         chatPageVM.saveMessage(inputContent)
         updateStateForNewMessage(inputContent)
