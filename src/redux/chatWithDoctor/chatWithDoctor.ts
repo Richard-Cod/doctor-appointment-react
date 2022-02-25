@@ -3,6 +3,8 @@ import { Contact } from '../../logic/models/Contact'
 import { Message } from '../../logic/models/Message'
 import { User } from '../../logic/models/User'
 
+
+
 export interface ChatWithDoctorState {
   contacts: Contact[] | undefined,
   contactsFiltered: Contact[] | undefined,
@@ -34,10 +36,15 @@ export const chatWithDoctorSlice = createSlice({
     setContactMessage: (state, action: PayloadAction<Message[]>) => {
       state.contactMessages = action.payload
     },
+    addNewMessage: (state, action: PayloadAction<Message>) => {
+      state.contactMessages?.push(action.payload)
+    },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { setContacts , setContactsFiltered , setCurrentChattingUser ,setContactMessage} = chatWithDoctorSlice.actions
+export const { setContacts , setContactsFiltered ,
+   setCurrentChattingUser ,setContactMessage,
+   addNewMessage} = chatWithDoctorSlice.actions
 
 export default chatWithDoctorSlice.reducer

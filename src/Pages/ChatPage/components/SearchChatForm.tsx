@@ -7,7 +7,7 @@ import { setContacts , setContactsFiltered } from "../../../redux/chatWithDoctor
 
 const chatPageVM = new ChatPageVM()
 
-function SearchChatForm({contactList , contactListFiltered} : {contactList : Contact[] | undefined , contactListFiltered : Contact[] | undefined}) {
+function SearchChatForm({contactList} : {contactList : Contact[] | undefined}) {
     // const contactList = useSelector((state: RootState) => state.chatWithDoctor.contacts)
     const dispatch = useDispatch()
     
@@ -15,8 +15,8 @@ function SearchChatForm({contactList , contactListFiltered} : {contactList : Con
     const handleChange = (e : React.FormEvent<HTMLInputElement>) => {
         const q = e.currentTarget.value
         setquery(q)
-        if (contactList && contactListFiltered) {
-            const data = chatPageVM.filterContactsByName(q ,contactList , contactListFiltered)
+        if (contactList) {
+            const data = chatPageVM.filterContactsByName(q ,contactList)
             console.log(data);
             dispatch(setContactsFiltered(data))
         }

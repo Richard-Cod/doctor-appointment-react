@@ -80,8 +80,8 @@ function ProfileWidget({doctor} : {doctor : Doctor}) {
 
   return (
         <Slider {...settings}>
-          {doctors?.map((doctor) => {
-            return <ProfileWidget doctor={doctor} />
+          {doctors?.map((doctor , i) => {
+            return <ProfileWidget key={i} doctor={doctor} />
           })}
         </Slider>
   )
@@ -103,7 +103,7 @@ function ProfileWidget({doctor} : {doctor : Doctor}) {
               <div className="about-content">
                 <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.</p>
                 <p>web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes</p>					
-                <a href="javascript:;">Read More..</a>
+                <a href="">Read More..</a>
               </div>
             </div>
             <div className="col-lg-8">

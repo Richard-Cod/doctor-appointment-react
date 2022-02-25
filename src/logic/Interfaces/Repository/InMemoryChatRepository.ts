@@ -22,6 +22,16 @@ const user2 : User = {
 
 
 class InMemoryChatRepository implements IChatRepository{
+    saveMessage(message: string): Promise<void> {
+        console.log("message");
+        const promise1 = new Promise<void>((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, 300);
+        });
+        return promise1
+        
+    }
     getContacts(): Promise<Contact[]> {
        const data : Contact[] = [
            {
@@ -40,7 +50,6 @@ class InMemoryChatRepository implements IChatRepository{
                 content: "Le contenu",
                 createdAt: "8H09"
             }
-
         }
        ]
 
@@ -55,16 +64,6 @@ class InMemoryChatRepository implements IChatRepository{
     getContactsMessages(contactId : number | string): Promise<Message[]> {
         
         const messageData : Message[] = [
-            {
-                user,
-                content : "Bonjour",
-                createdAt : "8h01 AM",
-            },
-            {
-                user,
-                content : "ça va ?",
-                createdAt : "8h01 AM",
-            },
             {
                 user,
                 content : "Regarde ces photos",

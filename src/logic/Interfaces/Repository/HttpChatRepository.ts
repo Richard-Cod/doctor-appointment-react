@@ -5,6 +5,9 @@ import { User } from "../../models/User";
 import { IChatRepository } from "./IChatRepository";
 
 class HttpChatRepository implements IChatRepository{
+    saveMessage(message: string): Promise<void> {
+        throw new Error("Method not implemented.");
+    }
     getContacts(): Promise<Contact[]> {
        const data : Contact[] = []
 

@@ -17,9 +17,9 @@ function ChatPage() {
   const currentChattingUser = useSelector((state: RootState) => state.chatWithDoctor.currentChattingUser)
   const contactListFiltered = useSelector((state: RootState) => state.chatWithDoctor.contactsFiltered)
   const contactMessages = useSelector((state: RootState) => state.chatWithDoctor.contactMessages)
-
   
   const dispatch = useDispatch()
+
     useEffect(() => {
         const asyncFunc = async () => {
             const result = await chatPageVM.getContacts()
@@ -53,7 +53,7 @@ function ChatPage() {
                     <i className="material-icons">control_point</i>
                   </a>
                 </div>
-                <SearchChatForm contactList={contactList} contactListFiltered={contactListFiltered} />
+                <SearchChatForm contactList={contactList} />
                 <ChatUsersList contactList={contactListFiltered} />
               </div>
               {/* /Chat Left */}
@@ -63,9 +63,9 @@ function ChatPage() {
                 {currentChattingUser && contactMessages && <div>
                   <ChatHeader user={currentChattingUser} />
                   <ChatBody messages={contactMessages} currentChattingUserId={currentChattingUser.user_id}  />
+                  <ChatFooter />
                   </div>
                   }
-                {/* <ChatFooter /> */}
               </div>
               {/* /Chat Right */}
             </div>

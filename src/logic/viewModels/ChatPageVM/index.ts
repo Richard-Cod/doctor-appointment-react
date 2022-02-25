@@ -11,12 +11,12 @@ class ChatPageVM{
         this.contacts = []
     }
 
-    filterContactsByName(name : string , contactList : Contact[] , contactListFiltered : Contact[]  ) : Contact[] {
+    filterContactsByName(name : string , contactList : Contact[]) : Contact[] {
         // console.log("Pas de name donc " , this.contacts);
         if (!name){
             return contactList
         }
-        const data = contactListFiltered?.filter((value) => (value.user.first_name + value.user.last_name).includes(name))
+        const data = contactList?.filter((value) => (value.user.first_name.toUpperCase() + value.user.last_name.toUpperCase()).includes(name.toUpperCase()))
         return data
     }
 
@@ -29,6 +29,14 @@ class ChatPageVM{
         const data = await this.dependencyContainer.chatRepository.getContactsMessages(contactId)
         return data
     }
+
+    async saveMessage(message : string){
+        const data = await this.dependencyContainer.chatRepository.saveMessage(message)
+        // return data
+     }
+
+
+    
 }
 
 export default ChatPageVM

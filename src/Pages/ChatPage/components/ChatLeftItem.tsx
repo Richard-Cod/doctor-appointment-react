@@ -1,8 +1,11 @@
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { RootState } from "../../../app/store"
 import { Contact } from "../../../logic/models/Contact"
 import { setCurrentChattingUser } from "../../../redux/chatWithDoctor/chatWithDoctor"
 
 function ChatLeftItem({item} : {item : Contact}) {
+  const currentChattingUser = useSelector((state: RootState) => state.chatWithDoctor.currentChattingUser)
+
   const dispatch = useDispatch()
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -11,7 +14,7 @@ function ChatLeftItem({item} : {item : Contact}) {
     dispatch(setCurrentChattingUser(item.user))
   }
     return (
-        <a onClick={handleClick} className="media read-chat active ">
+        <a style={{backgroundColor: currentChattingUser?.user_id == item.user.user_id ? "#ccc" : "white"}} onClick={handleClick} className="media read-chat active ">
         <div className="media-img-wrap">
           <div className={`avatar ${true && "avatar-online"}`}>
             <img src={item.user.profile_pic} alt="User Image" className="avatar-img rounded-circle" />

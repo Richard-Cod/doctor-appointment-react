@@ -24,16 +24,16 @@ function MsgAttachments() {
     )
 }
 
-function MsgBox({attachments , editable} : {attachments : any , editable : any}) {
+function MsgBox({message, attachments , editable} : {message :Message,attachments : any , editable : any}) {
     return (
         <div className="msg-box">
             <div>
-                <p>Hello. What can I do for you?</p>
+                <p>{message.content}</p>
                 {attachments && <MsgAttachments />}
                 <ul className="chat-msg-info">
                 <li>
                     <div className="chat-time">
-                    <span>8:30 AM</span>
+                    <span>{message.createdAt}</span>
                     </div>
                 </li>
                 { editable && <li><a href="#">Edit</a></li>}
@@ -77,7 +77,7 @@ function ChatBody({messages , currentChattingUserId} : {messages : Message[] ,cu
                             </div>
                             }
                             <div className="media-body">
-                                <MsgBox attachments={null} editable={undefined} />
+                                <MsgBox message={message} attachments={null} editable={undefined} />
                                 {/* <MsgBox attachments={message.attachments} editable={undefined} /> */}
                             </div>
                          </li>
