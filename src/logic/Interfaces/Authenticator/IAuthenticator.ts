@@ -1,3 +1,5 @@
+import { User } from "../../models/User";
+
 interface LoginResult {
     access : string,
     refresh : string,
@@ -10,6 +12,8 @@ interface RegisterResult {
 
 interface IAuthenticator{
     login(email:string , password:string) : Promise<LoginResult>
+
+    me() : Promise<User>
 
     loginWithGoogle() : void
 

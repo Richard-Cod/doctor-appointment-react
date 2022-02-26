@@ -8,7 +8,8 @@ import { increment } from "../../redux/counter/counterSlice"
 
 
 function Navbar() {
-  const count = useSelector((state: RootState) => state.counter.value)
+  const user = useSelector((state: RootState) => state.user.value)
+
   const dispatch = useDispatch()
   
     return (
@@ -52,6 +53,7 @@ function Navbar() {
                 <li><a href="reviews.html">Reviews</a></li>
                 <li><a href="doctor-register.html">Doctor Register</a></li> */}
               </ul>
+              {user?.id + " " + user?.email}
             </li>	
             <li className="has-submenu">
               <a href="#">Patients <i className="fas fa-chevron-down" /></a>
@@ -63,7 +65,7 @@ function Navbar() {
                 <li><a href="booking-success.html">Booking Success</a></li>
                 <li><a href="patient-dashboard.html">Patient Dashboard</a></li>
                 <li><a href="favourites.html">Favourites</a></li> */}
-                <li><Link to={routes.chat}>Chat</Link></li>
+                <li><Link to={routes.chatWithPatients}>Chat</Link></li>
                 {/* <li><a href="profile-settings.html">Profile Settings</a></li> */}
                 <li><Link to={routes.changePassword}>Change Password</Link></li>
               </ul>

@@ -15,7 +15,7 @@ function ChatHeader({user} : {user : User}) {
                     </div>
                     
                     <div className="media-body">
-                      <div className="user-name">{user.first_name + " " + user.last_name}</div>
+                      <div className="user-name">{user.first_name + " " + user.last_name} {user.id}</div>
                       {true && <div className="user-status">online</div>}
                     </div>
                   </div>

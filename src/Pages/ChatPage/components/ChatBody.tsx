@@ -76,14 +76,14 @@ function IsWrittingComponent({profile_pic} : {profile_pic:string}) {
     )
 }
 
-const chatPageVM = new ChatPageVM()
+// const chatPageVM = new ChatPageVM()
 function ChatBody({messages , currentChattingUser} : {messages : Message[] ,currentChattingUser : User }) {
 
     const showMessages = (currentUserId : number | string) => {
         return messages.map((message , i) => {
                 return  <li key={i} className={`media ${currentUserId != message.sender.id ? "sent" : "received"}`} >
-                            {currentUserId != message.sender.id && <div className="avatar">
-                            <img src={formatImageFromBackend(message.sender.profile_pic)} alt="User Image" className="avatar-img rounded-circle" />
+                            {currentUserId == message.sender.id && <div className="avatar">
+                            <img src={formatImageFromBackend(currentChattingUser.profile_pic)} alt="User Image" className="avatar-img rounded-circle" />
                             </div>
                             }
                             <div className="media-body">

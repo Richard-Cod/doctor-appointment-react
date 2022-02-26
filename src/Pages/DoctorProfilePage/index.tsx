@@ -16,7 +16,7 @@ function DoctorProfilePage() {
 
     useEffect(() => {
         const asyncFunc = async () => {
-        const result =await  doctorProfilePageVM.getDoctor(5)
+        const result =await  doctorProfilePageVM.getDoctor(1)
         setdoctor(result)
         }
         asyncFunc()

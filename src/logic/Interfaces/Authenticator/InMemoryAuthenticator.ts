@@ -1,7 +1,11 @@
+import { User } from "../../models/User";
 import {IAuthenticator, LoginResult, RegisterResult} from "./IAuthenticator"
 
 class InMemoryAuthenticator implements IAuthenticator{
     constructor(){
+    }
+    me(): Promise<User> {
+      throw new Error("Method not implemented.");
     }
 
     login(email:string , password:string){

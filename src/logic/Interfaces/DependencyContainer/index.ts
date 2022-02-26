@@ -20,7 +20,7 @@ class DependencyContainer{
         this.authenticator = new HttpAuthenticator()
         this.localDataRepository = new LocalDataRepository()
         this.doctorRepository = new HttpDoctorRepository()
-        this.chatRepository = new HttpChatRepository()
+        this.chatRepository = new InMemoryChatRepository()
         this.clinicInfosRepository = new InMemoryClinicInfosRepository()
     }
 

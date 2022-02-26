@@ -10,6 +10,9 @@ import { DependencyContainer } from "../DependencyContainer";
 import { IChatRepository } from "./IChatRepository";
 
 class HttpChatRepository implements IChatRepository{
+    getDoctorContacts(): Promise<Contact[]> {
+        throw new Error("Method not implemented.");
+    }
 
     async saveMessage(message: Message): Promise<void> {
         const token = localStorage.getItem(appConstants.ACCESS_TOKEN_KEY)

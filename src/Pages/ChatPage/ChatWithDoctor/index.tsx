@@ -1,25 +1,26 @@
-import ChatBody from "./components/ChatBody"
-import ChatHeader from "./components/ChatHeader"
-import ChatFooter from "./components/ChatFooter"
-import SearchChatForm from "./components/SearchChatForm"
-import ChatUsersList from "./components/ChatUsersList"
-import BaseLayout from "../../templates/layout/BaseLayout"
-import { RootState } from "../../app/store"
+import ChatBody from "../components/ChatBody"
+import ChatHeader from "../components/ChatHeader"
+import ChatFooter from "../components/ChatFooter"
+import SearchChatForm from "../components/SearchChatForm"
+import ChatUsersList from "../components/ChatUsersList"
+import BaseLayout from "../../../templates/layout/BaseLayout"
+import { RootState } from "../../../app/store"
 import { useDispatch, useSelector } from "react-redux"
 import React , {useEffect, useState} from "react"
-import ChatPageVM from "../../logic/viewModels/ChatPageVM"
-import { setContactMessage, setContacts } from "../../redux/chatWithDoctor/chatWithDoctor"
+import ChatPageVM from "../../../logic/viewModels/ChatPageVM"
+import { setContactMessage, setContacts } from "../../../redux/chatWithDoctor/chatWithDoctor"
+import SocketManager from "../../../logic/sockets"
+
 
 const chatPageVM = new ChatPageVM()
 
 function ChatPage() {
+  const dispatch = useDispatch()
   const contactList = useSelector((state: RootState) => state.chatWithDoctor.contacts)
   const currentChattingUser = useSelector((state: RootState) => state.chatWithDoctor.currentChattingUser)
   const contactListFiltered = useSelector((state: RootState) => state.chatWithDoctor.contactsFiltered)
   const contactMessages = useSelector((state: RootState) => state.chatWithDoctor.contactMessages)
   
-  const dispatch = useDispatch()
-
     useEffect(() => {
         const asyncFunc = async () => {
             const result = await chatPageVM.getContacts()

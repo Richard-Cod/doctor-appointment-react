@@ -3,6 +3,16 @@ import { Doctor } from "../../models/Doctor";
 import { Message } from "../../models/Message";
 import { User } from "../../models/User";
 import { IChatRepository } from "./IChatRepository";
+
+const patient : User = {
+    email: "richard.bathiebo@gmail.com",
+    gender: "Male",
+    first_name: "patifirs",
+    last_name: "patilast",
+    profile_pic: "https://redux-toolkit.js.org/img/redux.svg",
+    id: 2
+}
+
 const user : User = {
     email: "richard.bathiebo@gmail.com",
     gender: "Male",
@@ -17,11 +27,34 @@ const user2 : User = {
     first_name: "Cristine",
     last_name: "Nikita",
     profile_pic: "http://localhost:3000/assets/img/logo.png",
-    id: 2
+    id: 3
 }
 
 
 class InMemoryChatRepository implements IChatRepository{
+    getDoctorContacts(): Promise<Contact[]> {
+        const data : Contact[] = [
+            {
+                user:patient,
+                lastMessage : {
+                    sender:user,
+                    receiver:user,
+                    senderID:user.id,
+                    receiverID:user.id,
+                    content: "Le contenu",
+                    created_at: "8H09",
+                    updated_at: "8H09",
+                }
+            },
+        ]
+ 
+         const promise1 = new Promise<Contact[]>((resolve, reject) => {
+             setTimeout(() => {
+               resolve(data);
+             }, 300);
+         });
+         return promise1
+    }
     messageData : Message[] = [
         {
             sender:user,

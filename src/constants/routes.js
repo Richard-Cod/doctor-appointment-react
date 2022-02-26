@@ -3,6 +3,7 @@ export default {
     register :  "/register",
     home : "/",
     chat : "/chat",
+    chatWithPatients : "/chatWithPatients",
     changePassword : "/changePassword",
     forgotPassword : "/forgotPassword",
     admin : "/admin",
