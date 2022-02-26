@@ -9,6 +9,7 @@ const chatPageVM = new ChatPageVM()
 
 
 function ChatFooter() {
+    const user = useSelector((state: RootState) => state.user.value)
     const currentChattingUser = useSelector((state: RootState) => state.chatWithDoctor.currentChattingUser)
     const dispatch = useDispatch()
 
@@ -17,19 +18,27 @@ function ChatFooter() {
         setinputContent(e.currentTarget.value)
     }
 
-    function updateStateForNewMessage(content : string) {
-        if(currentChattingUser){
-            const msg: Message = {
-                user: currentChattingUser,
-                content,
-                createdAt: new Date().toDateString()
-            }
-            dispatch(addNewMessage(msg))
-        }
+    function updateStateForNewMessage(message : Message) {
+            dispatch(addNewMessage(message))
     }
     const handleClick = () => {
-        chatPageVM.saveMessage(inputContent)
-        updateStateForNewMessage(inputContent)
+        if(currentChattingUser && user){
+            console.log(user)
+            const msg: Message = {
+                sender: user,
+                content: inputContent,
+                created_at: new Date().toDateString(),
+                updated_at: new Date().toDateString(),
+                receiver: currentChattingUser,
+                receiverID: currentChattingUser.id,
+                senderID: user.id
+            }
+      
+    
+            chatPageVM.saveMessage(msg)
+            updateStateForNewMessage(msg)
+        }
+        
     }
     return (
         <div className="chat-footer">

@@ -9,7 +9,7 @@ const user : User = {
     first_name: "Richard",
     last_name: "Bathiebo",
     profile_pic: "https://redux-toolkit.js.org/img/redux.svg",
-    user_id: 1
+    id: 1
 }
 const user2 : User = {
     email: "richard.bathiebo@gmail.com",
@@ -17,13 +17,26 @@ const user2 : User = {
     first_name: "Cristine",
     last_name: "Nikita",
     profile_pic: "http://localhost:3000/assets/img/logo.png",
-    user_id: 2
+    id: 2
 }
 
 
 class InMemoryChatRepository implements IChatRepository{
-    saveMessage(message: string): Promise<void> {
+    messageData : Message[] = [
+        {
+            sender:user,
+            receiver:user,
+            senderID:user.id,
+            receiverID:user.id,
+            content: "Le contenu",
+            created_at: "8H09",
+            updated_at: "8H09",
+        }
+    ]
+
+    saveMessage(message: Message): Promise<void> {
         console.log("message");
+        this.messageData.push(message)
         const promise1 = new Promise<void>((resolve, reject) => {
             setTimeout(() => {
               resolve();
@@ -37,18 +50,26 @@ class InMemoryChatRepository implements IChatRepository{
            {
                user,
                lastMessage : {
-                   user,
+                   sender:user,
+                   receiver:user,
+                   senderID:user.id,
+                   receiverID:user.id,
                    content: "Le contenu",
-                   createdAt: "8H09"
+                   created_at: "8H09",
+                   updated_at: "8H09",
                }
 
            },
            {
             user:user2,
             lastMessage : {
-                user,
+                sender:user,
+                receiver:user,
+                senderID:user.id,
+                receiverID:user.id,
                 content: "Le contenu",
-                createdAt: "8H09"
+                created_at: "8H09",
+                updated_at: "8H09",
             }
         }
        ]
@@ -63,17 +84,9 @@ class InMemoryChatRepository implements IChatRepository{
 
     getContactsMessages(contactId : number | string): Promise<Message[]> {
         
-        const messageData : Message[] = [
-            {
-                user,
-                content : "Regarde ces photos",
-                createdAt : "8h01 AM",
-            },
-        ]
-        
         const promise1 = new Promise<Message[]>((resolve, reject) => {
             setTimeout(() => {
-              return resolve(messageData);
+              return resolve(this.messageData);
             }, 300);
         });
 

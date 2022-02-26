@@ -1,9 +1,15 @@
 import { User } from "./User";
 
 interface Message{
-    user: User,
+    receiver: User | undefined,
+    sender: User,
+
+    receiverID: number | undefined,
+    senderID: number | undefined,
+
     content : string
-    createdAt : string,
+    created_at : string,
+    updated_at : string,
 }
 
 export type {Message}

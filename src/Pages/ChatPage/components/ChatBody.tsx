@@ -1,5 +1,7 @@
 import React from "react"
+import { formatImageFromBackend } from "../../../logic/helper/getImageFromBackend"
 import { Message } from "../../../logic/models/Message"
+import { User } from "../../../logic/models/User"
 import ChatPageVM from "../../../logic/viewModels/ChatPageVM"
 
 
@@ -33,7 +35,7 @@ function MsgBox({message, attachments , editable} : {message :Message,attachment
                 <ul className="chat-msg-info">
                 <li>
                     <div className="chat-time">
-                    <span>{message.createdAt}</span>
+                    <span>{message.created_at}</span>
                     </div>
                 </li>
                 { editable && <li><a href="#">Edit</a></li>}
@@ -50,30 +52,38 @@ function ChatDate() {
     )
 }
 
-function IsWrittingComponent() {
+
+function IsWrittingComponent({profile_pic} : {profile_pic:string}) {
     return (
-        <div className="media-body">
-        <div className="msg-box">
-          <div>
-            <div className="msg-typing">
-              <span />
-              <span />
-              <span />
+      <li className="media received">
+          <div className="avatar">
+            <img src={formatImageFromBackend(profile_pic)} alt="User Image" className="avatar-img rounded-circle" />
+          </div>
+          <div className="media-body">
+            <div className="msg-box">
+              <div>
+                <div className="msg-typing">
+                  <span />
+                  <span />
+                  <span />
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </li>
+
+        
     )
 }
 
 const chatPageVM = new ChatPageVM()
-function ChatBody({messages , currentChattingUserId} : {messages : Message[] ,currentChattingUserId : number | string }) {
+function ChatBody({messages , currentChattingUser} : {messages : Message[] ,currentChattingUser : User }) {
 
     const showMessages = (currentUserId : number | string) => {
         return messages.map((message , i) => {
-                return  <li key={i} className={`media ${currentUserId == message.user.user_id ? "sent" : "received"}`} >
-                            {currentUserId != message.user.user_id && <div className="avatar">
-                            <img src={message.user.profile_pic} alt="User Image" className="avatar-img rounded-circle" />
+                return  <li key={i} className={`media ${currentUserId != message.sender.id ? "sent" : "received"}`} >
+                            {currentUserId != message.sender.id && <div className="avatar">
+                            <img src={formatImageFromBackend(message.sender.profile_pic)} alt="User Image" className="avatar-img rounded-circle" />
                             </div>
                             }
                             <div className="media-body">
@@ -90,14 +100,9 @@ function ChatBody({messages , currentChattingUserId} : {messages : Message[] ,cu
                 {/* {loading && <h1>Loading ... </h1> } */}
                   <div className="chat-scroll">
                     { messages && <ul className="list-unstyled">
-                        {showMessages(currentChattingUserId)}
+                        {showMessages(currentChattingUser.id)}
                       <ChatDate />
-                      <li className="media received">
-                        <div className="avatar">
-                          <img src="/assets/img/patients/patient.jpg" alt="User Image" className="avatar-img rounded-circle" />
-                        </div>
-                        <IsWrittingComponent />
-                      </li>
+                        <IsWrittingComponent profile_pic={currentChattingUser.profile_pic} />
                     </ul>}
                   </div>
                 </div>

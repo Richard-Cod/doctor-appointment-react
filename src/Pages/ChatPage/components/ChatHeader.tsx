@@ -1,3 +1,4 @@
+import { formatImageFromBackend } from "../../../logic/helper/getImageFromBackend"
 import { User } from "../../../logic/models/User"
 
 function ChatHeader({user} : {user : User}) {
@@ -9,7 +10,7 @@ function ChatHeader({user} : {user : User}) {
                   <div className="media">
                     <div className="media-img-wrap">
                       <div className={`avatar ${true && "avatar-online"}`}>
-                        <img src={user.profile_pic} alt="User Image" className="avatar-img rounded-circle" />
+                        <img src={formatImageFromBackend(user.profile_pic)} alt="User Image" className="avatar-img rounded-circle" />
                       </div>
                     </div>
                     

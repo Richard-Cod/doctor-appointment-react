@@ -13,14 +13,15 @@ export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setUser: (state) => {
+    setUser: (state , action: PayloadAction<User>) => {
+      const {email,gender,first_name,last_name,profile_pic,id} = action.payload
         const user : User = {
-            email: "richard.bathiebo@gmail.com",
-            gender: "Male",
-            first_name: "Richard",
-            last_name: "Bathiebo",
-            profile_pic: "",
-            user_id: 1
+            email,
+            gender,
+            first_name,
+            last_name,
+            profile_pic,
+            id
         }
       state.value = user 
     },

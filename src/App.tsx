@@ -26,6 +26,7 @@ import { DependencyContainer } from './logic/Interfaces/DependencyContainer';
 import DoctorProfilePage from './Pages/DoctorProfilePage';
 import { useDispatch } from 'react-redux';
 import { setUser } from './redux/user/userSlice';
+import { User } from './logic/models/User';
   
 
 
@@ -39,7 +40,15 @@ function App() {
       console.log(decoded);
       console.log("user" , decoded)
       // alert(decoded)
-      dispatch(setUser())
+      const user : User = {
+        id : 2,
+        email: '',
+        gender: '',
+        first_name: '',
+        last_name: '',
+        profile_pic: ''
+      }
+      dispatch(setUser(user))
     }
     
   }, [])

@@ -1,6 +1,7 @@
 import { DependencyContainer } from "../../Interfaces/DependencyContainer";
 import { Contact } from "../../models/Contact";
 import { Doctor } from "../../models/Doctor";
+import { Message } from "../../models/Message";
 
 class ChatPageVM{
     dependencyContainer : DependencyContainer;
@@ -30,7 +31,7 @@ class ChatPageVM{
         return data
     }
 
-    async saveMessage(message : string){
+    async saveMessage(message : Message){
         const data = await this.dependencyContainer.chatRepository.saveMessage(message)
         // return data
      }

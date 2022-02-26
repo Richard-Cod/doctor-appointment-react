@@ -31,7 +31,7 @@ function ChatPage() {
     useEffect(() => {
       const asyncFunc = async () => {
         if(currentChattingUser){
-          const result = await chatPageVM.getContactMessages(currentChattingUser.user_id);
+          const result = await chatPageVM.getContactMessages(currentChattingUser.id);
           dispatch(setContactMessage(result))
         }
       }
@@ -62,7 +62,7 @@ function ChatPage() {
                 {!currentChattingUser && !contactMessages && <h6 className="ml-4">Choose someone</h6>}
                 {currentChattingUser && contactMessages && <div>
                   <ChatHeader user={currentChattingUser} />
-                  <ChatBody messages={contactMessages} currentChattingUserId={currentChattingUser.user_id}  />
+                  <ChatBody messages={contactMessages} currentChattingUser={currentChattingUser}  />
                   <ChatFooter />
                   </div>
                   }
