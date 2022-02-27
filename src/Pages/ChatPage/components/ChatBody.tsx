@@ -104,6 +104,8 @@ function ChatBody({messages , currentChattingUser} : {messages : Message[] ,curr
                       {/* <ChatDate /> */}
                         { shouldShowWrittingComponent() 
                         && <IsWrittingComponent profile_pic={currentChattingUser.profile_pic} />}
+
+                        {messages.length == 0 && <h5 className="text-center mt-2">No messages yet</h5>}
                     </ul>}
                   </div>
                 </div>

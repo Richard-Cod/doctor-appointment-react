@@ -10,8 +10,25 @@ import { DependencyContainer } from "../DependencyContainer";
 import { IChatRepository } from "./IChatRepository";
 
 class HttpChatRepository implements IChatRepository{
-    getDoctorContacts(): Promise<Contact[]> {
-        throw new Error("Method not implemented.");
+    async getDoctorContacts(): Promise<Contact[]> {
+        const token = localStorage.getItem(appConstants.ACCESS_TOKEN_KEY)
+        
+        const config = {method: 'get',url: 'api/chats/list_patients_contacts',headers: {
+            "Authorization" : `JWT ${token}`
+        } };
+
+        const handleErrorReponse = (error : AxiosError) => {
+        const data = error.response?.data
+            if(data){
+                console.log(data)
+                toast(JSON.stringify(data))
+            }
+        }
+    
+        const result : Contact[] = await makeRequest(config , handleErrorReponse)
+        return result
+
+        
     }
 
     async saveMessage(message: Message): Promise<void> {
@@ -57,10 +74,10 @@ class HttpChatRepository implements IChatRepository{
 
     async getContactsMessages(contactId : number | string): Promise<Message[]> {
         const token = localStorage.getItem(appConstants.ACCESS_TOKEN_KEY)
-        
-        const config = {method: 'get',url: 'api/chats/',headers: {
-            "Authorization" : `JWT ${token}`
-        } };
+        const config = {
+            method: 'post',url: 'api/chats/',headers: { "Authorization" : `JWT ${token}`},
+            data: {"receiverId" : contactId , "othh": 11111} 
+         };
 
         const handleErrorReponse = (error : AxiosError) => {
         const data = error.response?.data
