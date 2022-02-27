@@ -1,16 +1,8 @@
-import React, { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { RootState } from "../../../app/store"
 import { Contact } from "../../../logic/models/Contact"
-import ChatPageVM from "../../../logic/viewModels/ChatPageVM"
-import { setContacts } from "../../../redux/chatWithDoctor/chatWithDoctor"
 import ChatLeftItem from "./ChatLeftItem"
 
-// import ChatPageVM from "../../../logic/ChatPageVM/index"
-const chatPageVM = new ChatPageVM()
 
 function ChatUsersList({contactList} : {contactList : Contact[] | undefined}) {
-    
     return (
         <div className="chat-users-list">
             <div className="chat-scroll">

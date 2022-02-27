@@ -1,15 +1,13 @@
 import React from "react"
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../app/store";
+import { useAppDispatch } from "../../../app/hooks";
 import { Contact } from "../../../logic/models/Contact";
 import ChatPageVM from "../../../logic/viewModels/ChatPageVM";
-import { setContacts , setContactsFiltered } from "../../../redux/chatWithDoctor/chatWithDoctor";
+import {  setContactsFiltered } from "../../../redux/chatWithDoctor/chatWithDoctor";
 
 const chatPageVM = new ChatPageVM()
 
 function SearchChatForm({contactList} : {contactList : Contact[] | undefined}) {
-    // const contactList = useSelector((state: RootState) => state.chatWithDoctor.contacts)
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
     
     const [query, setquery] = React.useState("")
     const handleChange = (e : React.FormEvent<HTMLInputElement>) => {

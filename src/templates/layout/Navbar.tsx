@@ -1,16 +1,10 @@
 import constants from "../../constants/site"
 import {Link} from 'react-router-dom'
 import routes from "../../constants/routes"
-
-import { useDispatch, useSelector } from "react-redux"
-import { RootState } from "../../app/store"
-import { increment } from "../../redux/counter/counterSlice"
-
+import { useAppSelector } from "../../app/hooks"
 
 function Navbar() {
-  const user = useSelector((state: RootState) => state.user.value)
-
-  const dispatch = useDispatch()
+  const user = useAppSelector(s => s.user.value)
   
     return (
         <nav className="navbar navbar-expand-lg header-nav">

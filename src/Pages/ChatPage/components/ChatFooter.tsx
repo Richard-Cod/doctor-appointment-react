@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
 import { toast } from "react-toastify"
-import { RootState } from "../../../app/store"
+import { useAppDispatch, useAppSelector } from "../../../app/hooks"
 import { Message } from "../../../logic/models/Message"
 import { User } from "../../../logic/models/User"
 import SocketManager from "../../../logic/sockets"
@@ -12,41 +11,30 @@ const chatPageVM = new ChatPageVM()
 
 
 function ChatFooter() {
-    const user = useSelector((state: RootState) => state.user.value)
-    const currentChattingUser = useSelector((state: RootState) => state.chatWithDoctor.currentChattingUser)
-    const dispatch = useDispatch()
-
+    const dispatch = useAppDispatch()
+    const user = useAppSelector((s) => s.user.value)
+    const currentChattingUser = useAppSelector((s) => s.chatWithDoctor.currentChattingUser)
     const manager = useRef(new SocketManager())
+    const [inputContent, setinputContent] = useState("second")
 
     useEffect(() => {
         manager.current.connect()
-    }, [])
-
-    useEffect(() => {
         if(user) manager.current.addUser(user.id)
     }, [])
 
     useEffect(() => {
         manager.current.socket.on("getMessage" , (payloadFromSocket : any) => {
             const {message} = payloadFromSocket
-            console.log(message);
-            
-            toast("vous avez recu un putain de message")
+            toast("vous avez recu un message")
             if(currentChattingUser && user){
                 console.log(message);
                 console.log("ayaia xaui");
                 dispatch(addNewMessage(message))
             }
-            
         })
     }, [])
     
-
-    const [inputContent, setinputContent] = useState("second")
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setinputContent(e.currentTarget.value)
-    }
-
+    
     function updateStateForNewMessage(message : Message) {
             dispatch(addNewMessage(message))
     }
@@ -54,10 +42,10 @@ function ChatFooter() {
     function sendMessageToSocket(message : Message , user:User) {
         if(currentChattingUser)
         manager.current.sendMessage(message , user,currentChattingUser)
-        // dispatch(addNewMessage(message))
     }
-
-    
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setinputContent(e.currentTarget.value)
+    }
 
 
     const handleClick = () => {

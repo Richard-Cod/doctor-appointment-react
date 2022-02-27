@@ -1,13 +1,13 @@
-import { useDispatch, useSelector } from "react-redux"
-import { RootState } from "../../../app/store"
+import { useAppDispatch, useAppSelector } from "../../../app/hooks"
 import { formatImageFromBackend } from "../../../logic/helper/getImageFromBackend"
 import { Contact } from "../../../logic/models/Contact"
 import { setCurrentChattingUser } from "../../../redux/chatWithDoctor/chatWithDoctor"
 
 function ChatLeftItem({item} : {item : Contact}) {
-  const currentChattingUser = useSelector((state: RootState) => state.chatWithDoctor.currentChattingUser)
+  
+  const currentChattingUser = useAppSelector((s) => s.chatWithDoctor.currentChattingUser)
 
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
