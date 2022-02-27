@@ -28,7 +28,21 @@ function ChatFooter() {
                 dispatch(addNewMessage(message))
             }
         })
+
+
+        manager.current.socket.on("getUserIsTyping" , (payloadFromSocket : any) => {
+            const {message} = payloadFromSocket
+            console.log(message);
+            toast("Quelqu'un est en train de vous ecrire")
+            // if(currentChattingUser && user){
+            //     dispatch(addNewMessage(message))
+            // }
+        })
+
     }, [])
+
+
+    
     
     
     function updateStateForNewMessage(message : Message) {
@@ -39,8 +53,14 @@ function ChatFooter() {
         if(currentChattingUser)
         manager.current.sendMessage(message , user,currentChattingUser)
     }
+    function sendUserIsTypingToSocket() {
+        if(currentChattingUser && user)
+        manager.current.sendUserIsTyping(user, currentChattingUser)
+    }
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setinputContent(e.currentTarget.value)
+        sendUserIsTypingToSocket()
     }
 
 

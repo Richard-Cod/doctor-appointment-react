@@ -9,7 +9,7 @@ import ProfilLayout from '../../templates/layout/ProfilLayout';
 const forgotPasswordConfirmPageVM = new  ForgotPasswordConfirmPageVM()
 function Form() {
     const { uid , token } = useParams();
-   const navigate =  useNavigate()
+    const navigate =  useNavigate()
 
     const formik = useFormik({
         initialValues: forgotPasswordConfirmPageVM.initialValues,
@@ -22,8 +22,6 @@ function Form() {
           }
         },
       });
-
-      
    
       return (
         <form onSubmit={formik.handleSubmit}>
@@ -45,8 +43,6 @@ function Form() {
         </form>
       )  
 }
-
-
 
 
 function ForgotPasswordConfirmPage() {

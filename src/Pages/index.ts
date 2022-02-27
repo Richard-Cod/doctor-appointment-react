@@ -10,13 +10,13 @@ import ChatPageWithPatients from './ChatPage/ChatWithPatients';
 import ForgotPasswordPage from './ForgetPasswordPage';
 
 export {
-HomePage,
-ChatPageWithDoctor,
-ChatPageWithPatients,
-LoginPage,
-DoctorProfilePage,
-RegisterPage,
-ChangePasswordPage,
-ForgotPasswordPage,
-ResetPasswordConfirmPage
+    HomePage,
+    ChatPageWithDoctor,
+    ChatPageWithPatients,
+    LoginPage,
+    DoctorProfilePage,
+    RegisterPage,
+    ChangePasswordPage,
+    ForgotPasswordPage,
+    ResetPasswordConfirmPage
 }

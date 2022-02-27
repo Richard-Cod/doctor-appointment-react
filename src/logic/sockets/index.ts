@@ -23,6 +23,13 @@ class SocketManager{
         this.socket.emit("addUser" ,userId)
     }
 
+    
+    sendUserIsTyping(sender : User , receiver : User){
+        this.socket.emit("sendUserIsTyping" ,{ senderId : sender.id,
+             receiverId: receiver.id
+            })
+    }
+
 
     sendMessage(message : Message , sender : User , receiver : User){
         console.log("envoie");
