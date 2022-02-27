@@ -1,3 +1,4 @@
+import { useAppSelector } from "../../../app/hooks"
 import { formatImageFromBackend } from "../../../logic/helper/getImageFromBackend"
 import { Message , User } from "../../../logic/models"
 
@@ -73,6 +74,7 @@ function IsWrittingComponent({profile_pic} : {profile_pic:string}) {
 }
 
 function ChatBody({messages , currentChattingUser} : {messages : Message[] ,currentChattingUser : User }) {
+    const writtingUserId = useAppSelector((s) => s.chatWithDoctor.writtingUserId)
 
     const showMessages = (currentUserId : number | string) => {
         return messages.map((message , i) => {
@@ -90,14 +92,18 @@ function ChatBody({messages , currentChattingUser} : {messages : Message[] ,curr
     
     }
 
+    const shouldShowWrittingComponent = () => {
+       return  writtingUserId && writtingUserId === currentChattingUser.id
+    }
     return (
         <div className="chat-body">
                 {/* {loading && <h1>Loading ... </h1> } */}
                   <div className="chat-scroll">
                     { messages && <ul className="list-unstyled">
                         {showMessages(currentChattingUser.id)}
-                      <ChatDate />
-                        <IsWrittingComponent profile_pic={currentChattingUser.profile_pic} />
+                      {/* <ChatDate /> */}
+                        { shouldShowWrittingComponent() 
+                        && <IsWrittingComponent profile_pic={currentChattingUser.profile_pic} />}
                     </ul>}
                   </div>
                 </div>

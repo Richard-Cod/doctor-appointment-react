@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../../app/hooks"
 import { Message , User} from "../../../logic/models"
 import SocketManager from "../../../logic/sockets"
 import {ChatPageVM} from "../../../logic/viewModels"
-import { addNewMessage } from "../../../redux/chatWithDoctor/chatWithDoctor"
+import { addNewMessage, setWrittingUserId } from "../../../redux/chatWithDoctor/chatWithDoctor"
 
 const chatPageVM = new ChatPageVM()
 
@@ -31,9 +31,16 @@ function ChatFooter() {
 
 
         manager.current.socket.on("getUserIsTyping" , (payloadFromSocket : any) => {
-            const {message} = payloadFromSocket
-            console.log(message);
-            toast("Quelqu'un est en train de vous ecrire")
+            const {senderId} = payloadFromSocket
+            toast(senderId +" est en train de vous ecrire")
+            if(user){
+                dispatch(setWrittingUserId(senderId))
+                setTimeout(()=> {
+                    dispatch(setWrittingUserId(undefined))
+                },2000)
+            }
+
+
             // if(currentChattingUser && user){
             //     dispatch(addNewMessage(message))
             // }
@@ -102,3 +109,4 @@ function ChatFooter() {
 }
 
 export default ChatFooter
+
