@@ -3,13 +3,14 @@ import {useEffect} from "react"
 import {ChatBody,ChatHeader,ChatFooter,SearchChatForm,ChatUsersList} from './'
 
 import BaseLayout from "../../../templates/layout/BaseLayout"
-import ChatPageVM from "../../../logic/viewModels/ChatPageVM/ChatWithDoctorPageVM"
 import { setContactMessage, setContacts } from "../../../redux/chatWithDoctor/chatWithDoctor"
 import { useAppDispatch, useAppSelector } from "../../../app/hooks"
-import ChatWithPatientsVM from "../../../logic/viewModels/ChatPageVM/chatWithPatientsVM"
+import { ChatPageVM, ChatWithDoctorPageVM , ChatWithPatientsVM } from "../../../logic/viewModels"
+
 
 const chatPageVM = new ChatPageVM()
-const otherChatPageVM= new ChatWithPatientsVM()
+const chatWithDoctorPageVM = new ChatWithDoctorPageVM()
+const chatWithPatientPageVM = new ChatWithPatientsVM()
 
 function MainChatCmp({isChattingWithPatients = false} : {isChattingWithPatients : boolean}) {
   const dispatch = useAppDispatch()
@@ -20,7 +21,7 @@ function MainChatCmp({isChattingWithPatients = false} : {isChattingWithPatients 
   
     useEffect(() => {
         const asyncFunc = async () => {
-            const resultPromise = isChattingWithPatients ? otherChatPageVM.getDoctorContacts() : chatPageVM.getContacts()
+            const resultPromise = isChattingWithPatients ? chatWithPatientPageVM.getDoctorContacts() : chatWithDoctorPageVM.getPatientContacts()
             const result = await resultPromise
             dispatch(setContacts(result))
         }

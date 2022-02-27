@@ -5,7 +5,7 @@ import AuthLayout from "../../templates/layout/AuthLayout"
 import {Link} from "react-router-dom"
 import routes from "../../constants/routes";
 import { useNavigate } from "react-router-dom";
-import RegisterPageVM from "../../logic/viewModels/RegisterPageVM";
+import {RegisterPageVM} from "../../logic/viewModels";
 
 const registerPageVM = new RegisterPageVM()
 

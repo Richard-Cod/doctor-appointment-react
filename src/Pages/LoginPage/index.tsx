@@ -2,7 +2,7 @@ import { Formik, useFormik } from "formik";
 import { BottomPart } from "../../components/shared/authPages";
 import Input from "../../components/shared/Input";
 import routes from "../../constants/routes";
-import LoginPageVM from "../../logic/viewModels/LoginPageVM";
+import {LoginPageVM} from "../../logic/viewModels";
 import AuthLayout from "../../templates/layout/AuthLayout"
 import {Link} from "react-router-dom"
 

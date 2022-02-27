@@ -1,11 +1,6 @@
-import  { useState , useEffect } from 'react'
 import {formatImageFromBackend} from '../../../logic/helper/getImageFromBackend'
 import { Doctor } from '../../../logic/models/Doctor'
 import { DoctorFeature } from '../../../logic/models/DoctorFeature'
-import DoctorProfilePageVM from '../../../logic/viewModels/DoctorProfilePageVM'
-
-
-
 
  function DoctorFeatureImage({feature} : {feature : DoctorFeature}) {
   return (

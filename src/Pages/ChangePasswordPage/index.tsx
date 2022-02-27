@@ -1,30 +1,25 @@
 import { useFormik } from 'formik';
-import { useNavigate, useParams } from 'react-router-dom';
 import Input from '../../components/shared/Input';
-import routes from '../../constants/routes';
-import ResetPasswordConfirmPageVM from '../../logic/viewModels/ResetPasswordConfirmPageVM';
-import AuthLayout from '../../templates/layout/AuthLayout';
+import {ChangePasswordPageVM} from '../../logic/viewModels';
 import ProfilLayout from '../../templates/layout/ProfilLayout';
 
-const resetPasswordConfirmPageVM = new  ResetPasswordConfirmPageVM()
-function Form() {
-    const { uid , token } = useParams();
-   const navigate =  useNavigate()
+const changePasswordPageVM = new  ChangePasswordPageVM()
 
+
+
+function Form() {
     const formik = useFormik({
-        initialValues: resetPasswordConfirmPageVM.initialValues,
-        validationSchema: resetPasswordConfirmPageVM.validationSchema,
+        initialValues: changePasswordPageVM.initialValues,
+        validationSchema: changePasswordPageVM.validationSchema,
         onSubmit: values => {
-            resetPasswordConfirmPageVM.submitForm(uid , token , values.newPassword)
-            navigate(routes.login)
+            alert("on submit")
           // formik.setSubmitting(false)
         },
       });
-
-      
    
       return (
         <form onSubmit={formik.handleSubmit}>
+            <Input label="Old Password" name="oldPassword" formik={formik} />
             <Input label="New Password" name="newPassword" type="password" formik={formik} />
             <Input label="Confirm Password" name="confirmPassword" type="password" formik={formik} />
             <div className="submit-section">
@@ -41,13 +36,12 @@ function Form() {
 
 
 
-function ResetPasswordConfirmPage() {
-
+function ChangePasswordPage() {
     return (
-        <AuthLayout>
-        <Form />
-     </AuthLayout>
+        <ProfilLayout title="Change password" showSidebar={false} isDoctor={false} isPatient={false}>
+           <Form />
+        </ProfilLayout>
     )
 }
 
-export default ResetPasswordConfirmPage
+export default ChangePasswordPage

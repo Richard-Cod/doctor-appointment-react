@@ -27,7 +27,7 @@ import appConstants from './constants/app';
 import { DependencyContainer } from './logic/Interfaces/DependencyContainer';
 import { setUser } from './redux/user/userSlice';
 import { User } from './logic/models/User';
-import HomePageVM from './logic/viewModels/HomePageVM';
+import {HomePageVM} from './logic/viewModels';
 import { useAppDispatch } from './app/hooks';
   
 const homePageVM = new HomePageVM()

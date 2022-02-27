@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { ClinicFeature } from "../../../logic/models/ClinicFeature";
-import HomePageVM from "../../../logic/viewModels/HomePageVM";
+import {HomePageVM} from "../../../logic/viewModels";
 
 const homePageVM = new HomePageVM()
 

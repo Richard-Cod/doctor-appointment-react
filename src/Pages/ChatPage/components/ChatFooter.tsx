@@ -4,11 +4,10 @@ import { useAppDispatch, useAppSelector } from "../../../app/hooks"
 import { Message } from "../../../logic/models/Message"
 import { User } from "../../../logic/models/User"
 import SocketManager from "../../../logic/sockets"
-import ChatPageVM from "../../../logic/viewModels/ChatPageVM/ChatWithDoctorPageVM"
+import {ChatPageVM} from "../../../logic/viewModels"
 import { addNewMessage } from "../../../redux/chatWithDoctor/chatWithDoctor"
 
 const chatPageVM = new ChatPageVM()
-
 
 function ChatFooter() {
     const dispatch = useAppDispatch()

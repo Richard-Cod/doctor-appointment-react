@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import Rating from "../../../components/shared/Rating";
 import { formatImageFromBackend } from "../../../logic/helper/getImageFromBackend";
 import { Doctor } from "../../../logic/models/Doctor";
-import HomePageVM from "../../../logic/viewModels/HomePageVM";
+import {HomePageVM} from "../../../logic/viewModels";
 
 const homePageVM = new HomePageVM()
 

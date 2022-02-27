@@ -2,8 +2,6 @@ import React from "react"
 import { formatImageFromBackend } from "../../../logic/helper/getImageFromBackend"
 import { Message } from "../../../logic/models/Message"
 import { User } from "../../../logic/models/User"
-import ChatPageVM from "../../../logic/viewModels/ChatPageVM/ChatWithDoctorPageVM"
-
 
 function MsgAttachments() {
     return (
@@ -76,7 +74,6 @@ function IsWrittingComponent({profile_pic} : {profile_pic:string}) {
     )
 }
 
-// const chatPageVM = new ChatPageVM()
 function ChatBody({messages , currentChattingUser} : {messages : Message[] ,currentChattingUser : User }) {
 
     const showMessages = (currentUserId : number | string) => {
