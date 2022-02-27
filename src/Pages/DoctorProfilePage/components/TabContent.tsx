@@ -1,4 +1,4 @@
-import { Doctor } from "../../../logic/models/Doctor";
+import { Doctor } from "../../../logic/models";
 import BusinessHours from "./TabContent/BusinessHours";
 import LocationsContent from "./TabContent/LocationsContent";
 import OverviewContent from "./TabContent/OverviewContent";

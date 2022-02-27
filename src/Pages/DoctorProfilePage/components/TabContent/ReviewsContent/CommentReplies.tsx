@@ -1,4 +1,4 @@
-import { DoctorReview } from "../../../../../logic/models/DoctorReview"
+import { DoctorReview } from "../../../../../logic/models"
 import CommentItem from "./CommentItem"
 
 

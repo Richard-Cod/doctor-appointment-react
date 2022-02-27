@@ -1,9 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Contact } from '../../logic/models/Contact'
-import { Message } from '../../logic/models/Message'
-import { User } from '../../logic/models/User'
-
-
+import { Contact ,Message,User } from '../../logic/models'
 
 export interface ChatWithDoctorState {
   contacts: Contact[] | undefined,

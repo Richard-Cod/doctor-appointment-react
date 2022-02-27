@@ -1,4 +1,4 @@
-import { Doctor } from "../../../../logic/models/Doctor"
+import { Doctor } from "../../../../logic/models"
 import DoctorAwardComponent from "../DoctorAwardComponent"
 import DoctorEducationComponent from "../DoctorEducationComponent"
 import DoctorExperienceComponent from "../DoctorExperienceComponent"

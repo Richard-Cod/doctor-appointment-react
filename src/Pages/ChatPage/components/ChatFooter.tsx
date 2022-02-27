@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { toast } from "react-toastify"
 import { useAppDispatch, useAppSelector } from "../../../app/hooks"
-import { Message } from "../../../logic/models/Message"
-import { User } from "../../../logic/models/User"
+import { Message , User} from "../../../logic/models"
 import SocketManager from "../../../logic/sockets"
 import {ChatPageVM} from "../../../logic/viewModels"
 import { addNewMessage } from "../../../redux/chatWithDoctor/chatWithDoctor"
@@ -26,8 +25,6 @@ function ChatFooter() {
             const {message} = payloadFromSocket
             toast("vous avez recu un message")
             if(currentChattingUser && user){
-                console.log(message);
-                console.log("ayaia xaui");
                 dispatch(addNewMessage(message))
             }
         })

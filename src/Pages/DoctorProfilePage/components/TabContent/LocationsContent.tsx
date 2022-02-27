@@ -1,4 +1,4 @@
-import { DoctorLocation } from '../../../../logic/models/DoctorLocation'
+import { DoctorLocation } from '../../../../logic/models'
 import LocationListItem from './LocationListItem'
 
 function LocationsContent({locations} : {locations : DoctorLocation[]}) {

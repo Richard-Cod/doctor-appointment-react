@@ -1,6 +1,4 @@
-import { Doctor } from "../../../../../logic/models/Doctor"
-import { DoctorReview } from "../../../../../logic/models/DoctorReview"
-
+import { Doctor , DoctorReview } from "../../../../../logic/models"
 
  function WriteReview({doctor} : {doctor : Doctor}) {
     return (

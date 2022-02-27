@@ -1,4 +1,4 @@
-import { DoctorServices } from "../../../logic/models/DoctorServices"
+import { DoctorServices } from "../../../logic/models"
 
 
 function DoctorServiceComponent({service} : {service : DoctorServices}) {

@@ -1,5 +1,5 @@
 import formatDate from "../../../logic/helper/formatDate";
-import { DoctorWorkExperience } from "../../../logic/models/DoctorWorkExperience";
+import { DoctorWorkExperience } from "../../../logic/models";
 
 
 function DoctorExperienceComponent({experience} : {experience : DoctorWorkExperience}) {

@@ -1,6 +1,5 @@
 import {formatImageFromBackend} from '../../../logic/helper/getImageFromBackend'
-import { Doctor } from '../../../logic/models/Doctor'
-import { DoctorFeature } from '../../../logic/models/DoctorFeature'
+import { Doctor , DoctorFeature } from '../../../logic/models'
 
  function DoctorFeatureImage({feature} : {feature : DoctorFeature}) {
   return (

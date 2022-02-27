@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Doctor } from '../../logic/models/Doctor';
+import { Doctor } from '../../logic/models';
 import { DoctorProfilePageVM} from '../../logic/viewModels';
 import ProfilLayout from '../../templates/layout/ProfilLayout';
 import DoctorDetails from './components/DoctorDetails';

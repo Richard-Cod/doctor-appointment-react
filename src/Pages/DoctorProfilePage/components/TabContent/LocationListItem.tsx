@@ -1,5 +1,5 @@
 import Rating from "../../../../components/shared/Rating"
-import { DoctorLocation } from "../../../../logic/models/DoctorLocation"
+import { DoctorLocation } from "../../../../logic/models"
 
 
  function LocationListItem({location} : {location : DoctorLocation}) {

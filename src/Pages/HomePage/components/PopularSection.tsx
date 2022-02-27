@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import Rating from "../../../components/shared/Rating";
 import { formatImageFromBackend } from "../../../logic/helper/getImageFromBackend";
-import { Doctor } from "../../../logic/models/Doctor";
+import { Doctor } from "../../../logic/models";
 import {HomePageVM} from "../../../logic/viewModels";
 
 const homePageVM = new HomePageVM()

@@ -1,5 +1,5 @@
 
-import { Doctor } from '../../../logic/models/Doctor'
+import { Doctor } from '../../../logic/models'
 import TabContent from './TabContent'
 import TabMenu from './TabMenu'
 

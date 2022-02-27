@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from "../../../app/hooks"
 import { formatImageFromBackend } from "../../../logic/helper/getImageFromBackend"
-import { Contact } from "../../../logic/models/Contact"
+import { Contact } from "../../../logic/models"
 import { setCurrentChattingUser } from "../../../redux/chatWithDoctor/chatWithDoctor"
 
 function ChatLeftItem({item} : {item : Contact}) {

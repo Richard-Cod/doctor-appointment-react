@@ -1,5 +1,5 @@
 import { formatImageFromBackend } from "../../../logic/helper/getImageFromBackend"
-import { User } from "../../../logic/models/User"
+import { User } from "../../../logic/models"
 
 function ChatHeader({user} : {user : User}) {
     return (

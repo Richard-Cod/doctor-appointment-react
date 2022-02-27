@@ -4,11 +4,9 @@ import Footer from "./Footer"
 function BaseLayout({children}) {
     return (
         <div className="main-wrapper">
-        {/* Header */}
         <Header />
         {children}
         <Footer />
-        {/* /Footer */}
       </div>
     )
 }

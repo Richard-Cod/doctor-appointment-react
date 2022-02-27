@@ -1,5 +1,5 @@
 import Rating from "../../../../../components/shared/Rating"
-import { DoctorReview } from "../../../../../logic/models/DoctorReview"
+import { DoctorReview } from "../../../../../logic/models"
 
 
 function CommentItem({review} : {review : DoctorReview}) {

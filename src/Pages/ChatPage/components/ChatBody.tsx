@@ -1,7 +1,5 @@
-import React from "react"
 import { formatImageFromBackend } from "../../../logic/helper/getImageFromBackend"
-import { Message } from "../../../logic/models/Message"
-import { User } from "../../../logic/models/User"
+import { Message , User } from "../../../logic/models"
 
 function MsgAttachments() {
     return (

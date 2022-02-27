@@ -1,4 +1,4 @@
-import { DoctorEducation } from "../../../logic/models/DoctorEducation";
+import { DoctorEducation } from "../../../logic/models";
 
 
 

@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react"
-import { Doctor } from "../../../../logic/models/Doctor"
-import { DoctorReview } from "../../../../logic/models/DoctorReview"
-import { User } from "../../../../logic/models/User"
+import { Doctor , User , DoctorReview } from "../../../../logic/models"
 import {DoctorProfilePageVM} from "../../../../logic/viewModels"
 import Comment from "./ReviewsContent/Comment"
 import ShowAllCommentsButton from "./ReviewsContent/ShowAllCommentsButton"

@@ -1,6 +1,6 @@
 import React from "react"
 import { useAppDispatch } from "../../../app/hooks";
-import { Contact } from "../../../logic/models/Contact";
+import { Contact } from "../../../logic/models";
 import {ChatPageVM} from "../../../logic/viewModels";
 import {  setContactsFiltered } from "../../../redux/chatWithDoctor/chatWithDoctor";
 

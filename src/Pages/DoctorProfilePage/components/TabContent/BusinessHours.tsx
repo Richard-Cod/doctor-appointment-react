@@ -1,6 +1,6 @@
 import moment from "moment"
 import { useEffect } from "react"
-import { OpenHour } from "../../../../logic/models/OpenHour"
+import { OpenHour } from "../../../../logic/models"
 
 
 const timeIsBetweenOpenOurs = (timeText : string) => {

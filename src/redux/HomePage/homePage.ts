@@ -1,8 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Contact } from '../../logic/models/Contact'
-import { DoctorFeature } from '../../logic/models/DoctorFeature'
-import { Message } from '../../logic/models/Message'
-import { User } from '../../logic/models/User'
+import { Contact , DoctorFeature , Message , User } from '../../logic/models'
 
 export interface ChatWithDoctorState {
   features: DoctorFeature[] | undefined,

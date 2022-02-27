@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { User } from '../../logic/models/User'
+import { User } from '../../logic/models'
 
 export interface UserState {
   value: User | null

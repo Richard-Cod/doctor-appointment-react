@@ -1,4 +1,4 @@
-import { Contact } from "../../../logic/models/Contact"
+import { Contact } from "../../../logic/models"
 import ChatLeftItem from "./ChatLeftItem"
 
 
