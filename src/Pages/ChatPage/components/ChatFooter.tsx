@@ -32,7 +32,6 @@ function ChatFooter() {
 
         manager.current.socket.on("getUserIsTyping" , (payloadFromSocket : any) => {
             const {senderId} = payloadFromSocket
-            toast(senderId +" est en train de vous ecrire")
             if(user){
                 dispatch(setWrittingUserId(senderId))
                 setTimeout(()=> {
