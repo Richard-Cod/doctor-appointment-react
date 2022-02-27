@@ -1,7 +1,7 @@
 import React from "react"
 import { useAppDispatch } from "../../../app/hooks";
 import { Contact } from "../../../logic/models/Contact";
-import ChatPageVM from "../../../logic/viewModels/ChatPageVM";
+import ChatPageVM from "../../../logic/viewModels/ChatPageVM/ChatWithDoctorPageVM";
 import {  setContactsFiltered } from "../../../redux/chatWithDoctor/chatWithDoctor";
 
 const chatPageVM = new ChatPageVM()

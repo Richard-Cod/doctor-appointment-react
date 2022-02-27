@@ -3,7 +3,7 @@ import { Contact } from "../../models/Contact";
 import { Doctor } from "../../models/Doctor";
 import { Message } from "../../models/Message";
 
-class ChatWithPatientsVM{
+class ChatPageVM{
     dependencyContainer : DependencyContainer;
     contacts : Contact[];
     
@@ -21,15 +21,6 @@ class ChatWithPatientsVM{
         return data
     }
     
-    async getDoctorContacts(){
-        const data = await this.dependencyContainer.chatRepository.getDoctorContacts()
-        return data
-     }
-    async getContacts(){
-       const data = await this.dependencyContainer.chatRepository.getContacts()
-       return data
-    }
-
     async getContactMessages(contactId : number){
         const data = await this.dependencyContainer.chatRepository.getContactsMessages(contactId)
         return data
@@ -44,4 +35,4 @@ class ChatWithPatientsVM{
     
 }
 
-export default ChatWithPatientsVM
+export default ChatPageVM

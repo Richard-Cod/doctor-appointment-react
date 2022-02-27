@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../../app/hooks"
 import { Message } from "../../../logic/models/Message"
 import { User } from "../../../logic/models/User"
 import SocketManager from "../../../logic/sockets"
-import ChatPageVM from "../../../logic/viewModels/ChatPageVM"
+import ChatPageVM from "../../../logic/viewModels/ChatPageVM/ChatWithDoctorPageVM"
 import { addNewMessage } from "../../../redux/chatWithDoctor/chatWithDoctor"
 
 const chatPageVM = new ChatPageVM()

@@ -2,7 +2,7 @@ import React from "react"
 import { formatImageFromBackend } from "../../../logic/helper/getImageFromBackend"
 import { Message } from "../../../logic/models/Message"
 import { User } from "../../../logic/models/User"
-import ChatPageVM from "../../../logic/viewModels/ChatPageVM"
+import ChatPageVM from "../../../logic/viewModels/ChatPageVM/ChatWithDoctorPageVM"
 
 
 function MsgAttachments() {
