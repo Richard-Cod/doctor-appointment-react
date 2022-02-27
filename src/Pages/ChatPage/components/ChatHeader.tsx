@@ -1,3 +1,4 @@
+import { formatFullname } from "../../../logic/helper/formatFullname"
 import { formatImageFromBackend } from "../../../logic/helper/getImageFromBackend"
 import { User } from "../../../logic/models"
 
@@ -15,7 +16,7 @@ function ChatHeader({user} : {user : User}) {
                     </div>
                     
                     <div className="media-body">
-                      <div className="user-name">{user.first_name + " " + user.last_name} {user.id}</div>
+                      <div className="user-name">{formatFullname(user)} {user.id}</div>
                       {true && <div className="user-status">online</div>}
                     </div>
                   </div>

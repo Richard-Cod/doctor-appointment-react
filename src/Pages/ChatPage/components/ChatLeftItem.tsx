@@ -1,4 +1,5 @@
 import { useAppDispatch, useAppSelector } from "../../../app/hooks"
+import { formatFullname } from "../../../logic/helper/formatFullname"
 import { formatImageFromBackend } from "../../../logic/helper/getImageFromBackend"
 import { Contact } from "../../../logic/models"
 import { setCurrentChattingUser } from "../../../redux/chatWithDoctor/chatWithDoctor"
@@ -11,7 +12,6 @@ function ChatLeftItem({item} : {item : Contact}) {
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
-    console.log("aaaa")
     dispatch(setCurrentChattingUser(item.user))
   }
     return (
@@ -23,7 +23,7 @@ function ChatLeftItem({item} : {item : Contact}) {
         </div>
         <div className="media-body">
           <div>
-            <div className="user-name text-left">{item.user.first_name + " " + item.user.last_name}</div>
+            <div className="user-name text-left">{formatFullname(item.user)}</div>
             <div className="user-last-chat">{item.lastMessage.content}</div>
           </div>
           <div>
