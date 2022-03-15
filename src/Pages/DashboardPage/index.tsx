@@ -1,4 +1,5 @@
 import { useState , useEffect } from "react"
+import { useAppSelector } from "../../app/hooks"
 import { formatFullname } from "../../logic/helper/formatFullname"
 import { Appoinment } from "../../logic/models"
 import { DashboardPageVM } from "../../logic/viewModels"
@@ -53,7 +54,23 @@ function DashboardPage() {
         asyncFunc()
       
     }, [])
+
+
+    useEffect(() => {
+
+        const asyncFunc = async () => {
+            const data = await dashboardPageVM.getDoctorAppointments()
+            setappointments(data)
+        }
+
+        asyncFunc()
+      
+    }, [])
     
+
+    const user = useAppSelector(s => s.user.value)
+
+        
 
   return (
    <ProfilLayout title={"Dashboard"} showSidebar={true} isDoctor={true} isPatient={false}>
