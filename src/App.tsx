@@ -29,6 +29,9 @@ import { setUser } from './redux/user/userSlice';
 import { User } from './logic/models';
 import {HomePageVM} from './logic/viewModels';
 import { useAppDispatch } from './app/hooks';
+import VoicecallPage from './Pages/VoiceCallPage';
+import VideoCallPage from './Pages/VideoCallPage';
+import DashboardPage from './Pages/DashboardPage';
   
 const homePageVM = new HomePageVM()
 
@@ -59,6 +62,10 @@ function App() {
           <Route path={ROUTES.changePassword} element={<ChangePasswordPage />} />
           <Route path={ROUTES.forgotPassword} element={<ForgotPasswordPage />} />
           <Route path={ROUTES.resetPasswordConfirm} element={<ResetPasswordConfirmPage />} />
+          <Route path={ROUTES.voicecall} element={<VoicecallPage />} />
+          <Route path={ROUTES.videocall} element={<VideoCallPage />} />
+          <Route path={ROUTES.docDashboard.dashboard} element={<DashboardPage />} />
+          
         </Routes>
         <ToastContainer />
     </Router>

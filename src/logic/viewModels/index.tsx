@@ -9,6 +9,9 @@ import HomePageVM from './HomePageVM'
 import LoginPageVM from "./LoginPageVM"
 import RegisterPageVM from "./RegisterPageVM"
 import ResetPasswordConfirmPageVM from "./ResetPasswordConfirmPageVM"
+import { VoiceCallPageVM } from "./VoiceCallPageVM"
+import { VideoCallPageVM } from "./VideoCallPageVM"
+import { DashboardPageVM } from "./DashboardPageVM"
 
 
 export {
@@ -21,5 +24,8 @@ export {
     HomePageVM,
     LoginPageVM,
     RegisterPageVM,
-    ResetPasswordConfirmPageVM
+    ResetPasswordConfirmPageVM,
+    VoiceCallPageVM,
+    VideoCallPageVM,
+    DashboardPageVM
 }

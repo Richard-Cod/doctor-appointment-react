@@ -20,7 +20,6 @@ class HttpChatRepository implements IChatRepository{
         const handleErrorReponse = (error : AxiosError) => {
         const data = error.response?.data
             if(data){
-                console.log(data)
                 toast(JSON.stringify(data))
             }
         }
@@ -34,9 +33,6 @@ class HttpChatRepository implements IChatRepository{
     async saveMessage(message: Message): Promise<void> {
         const token = localStorage.getItem(appConstants.ACCESS_TOKEN_KEY)
         
-        console.log("bjbjbj ");
-        console.log(message);
-        
         const config = {
             method: 'post',url: 'api/pok/',headers: {"Authorization" : `JWT ${token}`},
             data: {content : message.content , "receiverId": message.receiverID}
@@ -45,7 +41,6 @@ class HttpChatRepository implements IChatRepository{
         const handleErrorReponse = (error : AxiosError) => {
         const data = error.response?.data
             if(data){
-                console.log(data)
                 toast(JSON.stringify(data))
             }
         }
@@ -54,6 +49,7 @@ class HttpChatRepository implements IChatRepository{
         return result
     }
     async getContacts(): Promise<Contact[]> {
+
         const token = localStorage.getItem(appConstants.ACCESS_TOKEN_KEY)
         
         const config = {method: 'get',url: 'api/chats/list_doctors_contacts',headers: {
@@ -63,7 +59,6 @@ class HttpChatRepository implements IChatRepository{
         const handleErrorReponse = (error : AxiosError) => {
         const data = error.response?.data
             if(data){
-                console.log(data)
                 toast(JSON.stringify(data))
             }
         }
@@ -82,13 +77,11 @@ class HttpChatRepository implements IChatRepository{
         const handleErrorReponse = (error : AxiosError) => {
         const data = error.response?.data
             if(data){
-                console.log(data)
                 toast(JSON.stringify(data))
             }
         }
     
         const result : Message[] = await makeRequest(config , handleErrorReponse)
-        console.log(result);
         return result
 
     }

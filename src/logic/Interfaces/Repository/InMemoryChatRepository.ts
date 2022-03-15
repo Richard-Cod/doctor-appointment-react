@@ -30,6 +30,15 @@ const user2 : User = {
     id: 3
 }
 
+const user5 : User = {
+    email: "bema@gmail.com",
+    gender: "Male",
+    first_name: "Bema",
+    last_name: "Sylla",
+    profile_pic: "http://localhost:3000/assets/img/logo.png",
+    id: 3
+}
+
 
 class InMemoryChatRepository implements IChatRepository{
     getDoctorContacts(): Promise<Contact[]> {
@@ -37,6 +46,7 @@ class InMemoryChatRepository implements IChatRepository{
             {
                 user:patient,
                 lastMessage : {
+                    id:0,
                     sender:user,
                     receiver:user,
                     senderID:user.id,
@@ -57,6 +67,7 @@ class InMemoryChatRepository implements IChatRepository{
     }
     messageData : Message[] = [
         {
+            id:0,
             sender:user,
             receiver:user,
             senderID:user.id,
@@ -83,6 +94,7 @@ class InMemoryChatRepository implements IChatRepository{
            {
                user,
                lastMessage : {
+                   id:0,
                    sender:user,
                    receiver:user,
                    senderID:user.id,
@@ -96,6 +108,20 @@ class InMemoryChatRepository implements IChatRepository{
            {
             user:user2,
             lastMessage : {
+                id:0,
+                sender:user,
+                receiver:user,
+                senderID:user.id,
+                receiverID:user.id,
+                content: "Le contenu",
+                created_at: "8H09",
+                updated_at: "8H09",
+            }
+        },
+        {
+            user:user5,
+            lastMessage : {
+                id:0,
                 sender:user,
                 receiver:user,
                 senderID:user.id,

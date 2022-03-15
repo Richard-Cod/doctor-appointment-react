@@ -8,6 +8,9 @@ import { InMemoryChatRepository } from "../Repository/InMemoryChatRepository";
 import { InMemoryClinicInfosRepository } from "../Repository/InMemoryClinicInfosRepository";
 import { IClinicInfosRepository } from "../Repository/IClinicInfosRepository";
 import { HttpChatRepository } from "../Repository/HttpChatRepository";
+import { InMemoryApptRepository } from "../Repository/InMemoryApptRepository";
+import { IApptRepository } from "../Repository/IApptRepository";
+
 
 class DependencyContainer{
     authenticator : IAuthenticator
@@ -15,6 +18,7 @@ class DependencyContainer{
     doctorRepository : IDoctorRepository
     chatRepository: IChatRepository
     clinicInfosRepository: IClinicInfosRepository
+    apptRepository : IApptRepository
     
     constructor(){
         this.authenticator = new HttpAuthenticator()
@@ -22,6 +26,7 @@ class DependencyContainer{
         this.doctorRepository = new HttpDoctorRepository()
         this.chatRepository = new HttpChatRepository()
         this.clinicInfosRepository = new InMemoryClinicInfosRepository()
+        this.apptRepository = new InMemoryApptRepository()
     }
 
 }

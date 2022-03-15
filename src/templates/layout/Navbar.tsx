@@ -41,6 +41,8 @@ function Navbar() {
                 <li><a href="schedule-timings.html">Schedule Timing</a></li>
                 <li><a href="my-patients.html">Patients List</a></li>
                 <li><a href="patient-profile.html">Patients Profile</a></li> */}
+                <li><Link to={routes.voicecall}>Voice call</Link></li>
+                <li><Link to={routes.videocall}>Video call</Link></li>
                 <li><Link to={routes.chat}>Chat</Link></li>
                 {/* <li><a href="invoices.html">Invoices</a></li>
                 <li><a href="doctor-profile-settings.html">Profile Settings</a></li>
@@ -62,6 +64,13 @@ function Navbar() {
                 <li><Link to={routes.chatWithPatients}>Chat</Link></li>
                 {/* <li><a href="profile-settings.html">Profile Settings</a></li> */}
                 <li><Link to={routes.changePassword}>Change Password</Link></li>
+              </ul>
+            </li>	
+
+            <li className="has-submenu">
+              <a href="#">Manage <i className="fas fa-chevron-down" /></a>
+              <ul className="submenu">
+                <li><a href={routes.docDashboard.dashboard}>Dashboard</a></li>
               </ul>
             </li>	
 
@@ -87,10 +96,6 @@ function Navbar() {
                 <li><a href="forgot-password.html">Forgot Password</a></li>
               </ul>
             </li> */}
-            <li>
-              <Link to={routes.admin} target="_blank">Admin</Link>
-            </li>
-          
             <li className="login-link">
               <Link to={routes.login}>Login / Signup</Link>
             </li>

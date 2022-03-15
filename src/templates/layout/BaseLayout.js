@@ -6,6 +6,7 @@ function BaseLayout({children}) {
         <div className="main-wrapper">
         <Header />
         {children}
+
         <Footer />
       </div>
     )

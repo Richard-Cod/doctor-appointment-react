@@ -16,6 +16,8 @@ const homePageVM = new HomePageVM()
     asyncFunc()
   }, [])
 
+  
+
   const settings = {
     slidesToShow: 4,
     slidesToScroll: 2,

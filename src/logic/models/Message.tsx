@@ -1,6 +1,7 @@
 import { User } from "./User";
 
 interface Message{
+    id:number,
     receiver: User | undefined,
     sender: User,
 

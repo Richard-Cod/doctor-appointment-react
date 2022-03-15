@@ -23,6 +23,10 @@ function ChatFooter() {
     useEffect(() => {
         manager.current.socket.on("getMessage" , (payloadFromSocket : any) => {
             const {message} = payloadFromSocket
+
+            console.log("truc");
+            console.log(message);
+            
             toast("vous avez recu un message")
             if(currentChattingUser && user){
                 dispatch(addNewMessage(message))
@@ -72,7 +76,6 @@ function ChatFooter() {
 
     const handleClick = () => {
         if(currentChattingUser && user){
-            console.log(user)
             const msg: Message = {
                 sender: user,
                 content: inputContent,
@@ -80,7 +83,8 @@ function ChatFooter() {
                 updated_at: new Date().toDateString(),
                 receiver: currentChattingUser,
                 receiverID: currentChattingUser.id,
-                senderID: user.id
+                senderID: user.id,
+                id: 0
             }
             chatPageVM.saveMessage(msg)
             updateStateForNewMessage(msg)

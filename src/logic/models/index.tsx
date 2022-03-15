@@ -1,3 +1,4 @@
+import { Appoinment } from "./Appoinment";
 import { ClinicFeature } from "./ClinicFeature";
 import { Contact } from "./Contact";
 import { Doctor } from "./Doctor";
@@ -28,5 +29,6 @@ export type {
     DoctorWorkExperience,
     Message,
     OpenHour,
-    User
+    User,
+    Appoinment
 }

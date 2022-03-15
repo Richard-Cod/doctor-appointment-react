@@ -9,8 +9,16 @@ export default {
     admin : "/admin",
     doctorProfile : "/doctor-profile",
     resetPasswordConfirm : "reset-password-confirm/:uid/:token",
-
-
+    voicecall : "/voicecall",
+    videocall : "/videocall",
+    docDashboard : {
+        dashboard : "/dashboard",
+        appointments : "/appointments",
+        mypatients : "/mypatients",
+        scheduleTimings: "/scheduleTimings",
+        invoices: "/invoices",
+        reviews : "/reviews",
+    }
 
     // adminHome : ""
 }

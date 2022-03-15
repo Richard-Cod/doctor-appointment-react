@@ -20,7 +20,6 @@ function DoctorWidget({doctor} : {doctor : Doctor}) {
             <div className="doc-info-left">
               <div className="doctor-img">
                 <img src={formatImageFromBackend(doctor.user.profile_pic)} className="img-fluid" alt="User Image" />
-                
               </div>
               <div className="doc-info-cont">
                 <h4 className="doc-name">Dr.  {doctor.user.last_name} {doctor.user.first_name}</h4>

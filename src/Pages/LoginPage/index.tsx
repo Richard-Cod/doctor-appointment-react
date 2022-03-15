@@ -24,7 +24,6 @@ function Form({label} : {label : string}) {
         //     navigate(routes.home);
         // }, 300);
 
-
         },
       });
    

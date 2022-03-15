@@ -3,13 +3,17 @@ import counterReducer from '../redux/counter/counterSlice'
 import userReducer  from './../redux/user/userSlice';
 import chatWithDoctorReducer from './../redux/chatWithDoctor/chatWithDoctor';
 import HomePageReducer from './../redux/HomePage/homePage';
+import VoiceCallReducer from './../redux/voiceCallPage/voiceCall';
+import VideoCallReducer from './../redux/videoCallPage/videoCall';
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
     user: userReducer,
     chatWithDoctor: chatWithDoctorReducer,
-    homePage: HomePageReducer
+    homePage: HomePageReducer,
+    voiceCall: VoiceCallReducer,
+    videoCall: VideoCallReducer
   },
 });
 

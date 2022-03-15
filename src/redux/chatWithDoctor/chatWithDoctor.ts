@@ -39,6 +39,7 @@ export const chatWithDoctorSlice = createSlice({
       state.contactMessages = action.payload
     },
     addNewMessage: (state, action: PayloadAction<Message>) => {
+      if(state.contactMessages?.find(value => value.id === action.payload.id)) return
       state.contactMessages?.push(action.payload)
     },
     setWrittingUserId: (state, action: PayloadAction<number | undefined>) => {
