@@ -50,8 +50,6 @@ export const viewModelsSlice = createSlice({
 
 export const { } = viewModelsSlice.actions
 
-// Other code such as selectors can use the imported `RootState` type
-
 export const selectChangePasswordPageVM = (state: RootState) => state.viewModels.changePasswordPageVM
 export const selectChatPageVM = (state: RootState) => state.viewModels.chatPageVM
 
