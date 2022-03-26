@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import Slider from "react-slick";
+import { useAppSelector } from "../../../app/hooks";
 import Rating from "../../../components/shared/Rating";
 import { formatImageFromBackend } from "../../../logic/helper/getImageFromBackend";
 import { Doctor } from "../../../logic/models";
 import {HomePageVM} from "../../../logic/viewModels";
+import { selectHomePageVM } from "../../../redux/viewmodels/viewmodels";
 
-const homePageVM = new HomePageVM()
 
 function ProfileWidget({doctor} : {doctor : Doctor}) {
   return (
@@ -51,7 +52,9 @@ function ProfileWidget({doctor} : {doctor : Doctor}) {
 }
 
  function PartieSlider() {
-   const [doctors, setdoctors] = useState<Doctor[]>()
+  const [doctors, setdoctors] = useState<Doctor[]>()
+  const homePageVM = useAppSelector(selectHomePageVM)
+
 
    useEffect(() => {
 

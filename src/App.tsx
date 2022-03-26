@@ -28,15 +28,17 @@ import { DependencyContainer } from './logic/Interfaces/DependencyContainer';
 import { setUser } from './redux/user/userSlice';
 import { User } from './logic/models';
 import {HomePageVM} from './logic/viewModels';
-import { useAppDispatch } from './app/hooks';
+import { useAppDispatch, useAppSelector } from './app/hooks';
 import VoicecallPage from './Pages/VoiceCallPage';
 import VideoCallPage from './Pages/VideoCallPage';
 import DashboardPage from './Pages/DashboardPage';
+import { selectHomePageVM } from './redux/viewmodels/viewmodels';
   
-const homePageVM = new HomePageVM()
 
 function App() {
   const dispatch = useAppDispatch()
+const homePageVM = useAppSelector(selectHomePageVM)
+
   useEffect(() => {
     const asyncFunc = async() =>{
     const dependencies = new DependencyContainer()

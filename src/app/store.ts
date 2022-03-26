@@ -5,6 +5,7 @@ import chatWithDoctorReducer from './../redux/chatWithDoctor/chatWithDoctor';
 import HomePageReducer from './../redux/HomePage/homePage';
 import VoiceCallReducer from './../redux/voiceCallPage/voiceCall';
 import VideoCallReducer from './../redux/videoCallPage/videoCall';
+import viewModelsReducer from './../redux/viewmodels/viewmodels';
 
 export const store = configureStore({
   reducer: {
@@ -13,7 +14,8 @@ export const store = configureStore({
     chatWithDoctor: chatWithDoctorReducer,
     homePage: HomePageReducer,
     voiceCall: VoiceCallReducer,
-    videoCall: VideoCallReducer
+    videoCall: VideoCallReducer,
+    viewModels : viewModelsReducer
   },
 });
 

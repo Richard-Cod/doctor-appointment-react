@@ -6,11 +6,10 @@ import BaseLayout from "../../../templates/layout/BaseLayout"
 import { setContactMessage, setContacts } from "../../../redux/chatWithDoctor/chatWithDoctor"
 import { useAppDispatch, useAppSelector } from "../../../app/hooks"
 import { ChatPageVM, ChatWithDoctorPageVM , ChatWithPatientsVM } from "../../../logic/viewModels"
+import { selectChatPageVM, selectchatWithDoctorPageVM, selectchatWithPatientsPageVM } from "../../../redux/viewmodels/viewmodels"
 
 
-const chatPageVM = new ChatPageVM()
-const chatWithDoctorPageVM = new ChatWithDoctorPageVM()
-const chatWithPatientPageVM = new ChatWithPatientsVM()
+
 
 function MainChatCmp({isChattingWithPatients = false} : {isChattingWithPatients : boolean}) {
   const dispatch = useAppDispatch()
@@ -18,6 +17,11 @@ function MainChatCmp({isChattingWithPatients = false} : {isChattingWithPatients 
   const currentChattingUser = useAppSelector(s => s.chatWithDoctor.currentChattingUser)
   const contactListFiltered = useAppSelector(s => s.chatWithDoctor.contactsFiltered)
   const contactMessages = useAppSelector(s => s.chatWithDoctor.contactMessages)
+
+  const chatPageVM = useAppSelector(selectChatPageVM)
+  const chatWithDoctorPageVM = useAppSelector(selectchatWithDoctorPageVM)
+  const chatWithPatientPageVM = useAppSelector(selectchatWithPatientsPageVM)
+
   
     useEffect(() => {
         const asyncFunc = async () => {

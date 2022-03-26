@@ -3,10 +3,10 @@ import { useAppSelector } from "../../app/hooks"
 import { formatFullname } from "../../logic/helper/formatFullname"
 import { Appoinment } from "../../logic/models"
 import { DashboardPageVM } from "../../logic/viewModels"
+import { selectDashboardPageVM } from "../../redux/viewmodels/viewmodels"
 import AuthLayout from "../../templates/layout/AuthLayout"
 import ProfilLayout from "../../templates/layout/ProfilLayout"
 
-const dashboardPageVM = new DashboardPageVM()
 
 function AppointmentList({appointments}:{appointments : Appoinment[]}) {
   return  <tbody>
@@ -42,6 +42,9 @@ function AppointmentList({appointments}:{appointments : Appoinment[]}) {
 
 
 function DashboardPage() {
+    const dashboardPageVM = useAppSelector(selectDashboardPageVM)
+
+
     const [appointments, setappointments] = useState<Appoinment[]>()
 
     useEffect(() => {

@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react"
+import { useAppSelector } from "../../../../app/hooks"
 import { Doctor , User , DoctorReview } from "../../../../logic/models"
 import {DoctorProfilePageVM} from "../../../../logic/viewModels"
+import { selectDoctorProfilePageVM } from "../../../../redux/viewmodels/viewmodels"
 import Comment from "./ReviewsContent/Comment"
 import ShowAllCommentsButton from "./ReviewsContent/ShowAllCommentsButton"
 import WriteReview from "./ReviewsContent/WriteReview"
 
 
-const doctorProfilePageVM  =  new DoctorProfilePageVM()
 
 
 function ReviewsContent({doctorId} : {doctorId : number}) {
+  const doctorProfilePageVM  = useAppSelector(selectDoctorProfilePageVM)
+
 
   const [reviews, setreviews] = useState<DoctorReview[]>()
 

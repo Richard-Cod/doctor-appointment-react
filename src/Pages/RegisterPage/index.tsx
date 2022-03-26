@@ -6,11 +6,14 @@ import {Link} from "react-router-dom"
 import routes from "../../constants/routes";
 import { useNavigate } from "react-router-dom";
 import {RegisterPageVM} from "../../logic/viewModels";
+import { useSelector } from "react-redux";
+import { selectRegisterPageVM } from "../../redux/viewmodels/viewmodels";
 
-const registerPageVM = new RegisterPageVM()
 
 function Form({label} : {label : string}) {
   const navigate = useNavigate();
+const registerPageVM = useSelector(selectRegisterPageVM)
+
 
     const formik = useFormik({
         initialValues: registerPageVM.initialValues,
@@ -43,7 +46,9 @@ function Form({label} : {label : string}) {
 }
 
 function RegisterPage() {
-    const label = "Register"
+  const registerPageVM = useSelector(selectRegisterPageVM)
+
+  const label = "Register"
     return (
         <AuthLayout label={label}>
           <Form label={label} />

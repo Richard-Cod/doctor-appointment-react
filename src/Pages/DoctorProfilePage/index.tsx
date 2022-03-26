@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react';
+import { useAppSelector } from '../../app/hooks';
 import { Doctor } from '../../logic/models';
 import { DoctorProfilePageVM} from '../../logic/viewModels';
+import { selectDoctorProfilePageVM } from '../../redux/viewmodels/viewmodels';
 import ProfilLayout from '../../templates/layout/ProfilLayout';
 import DoctorDetails from './components/DoctorDetails';
 import DoctorWidget from './components/DoctorWidget';
 
-const doctorProfilePageVM  =  new DoctorProfilePageVM()
 
 function DoctorProfilePage() {
     const [doctor, setdoctor] = useState<Doctor>()
+    const doctorProfilePageVM  =  useAppSelector(selectDoctorProfilePageVM)
+
 
     useEffect(() => {
         const asyncFunc = async () => {

@@ -6,10 +6,8 @@ import { formatFullname } from '../../logic/helper/formatFullname'
 import {getCallTimeDifference} from '../../logic/helper/getCallTimeDifference'
 import { formatImageFromBackend } from '../../logic/helper/getImageFromBackend'
 import { VoiceCallPageVM } from '../../logic/viewModels'
+import { selectVoiceCallPageVM } from '../../redux/viewmodels/viewmodels'
 import { setCallingDoctor } from '../../redux/voiceCallPage/voiceCall'
-import BaseLayout from '../../templates/layout/BaseLayout'
-
-const voiceCallPageVM = new VoiceCallPageVM()
 
 function VoicecallPage() {
   const user = useAppSelector(s => s.user.value)
@@ -17,6 +15,10 @@ function VoicecallPage() {
 
   const [callTimeStart, setcallTimeStart] = useState(new Date())
   const [callTime, setcallTime] = useState(new Date())
+
+
+  const voiceCallPageVM = useAppSelector(selectVoiceCallPageVM)
+
 
   const dispatch = useAppDispatch()
 

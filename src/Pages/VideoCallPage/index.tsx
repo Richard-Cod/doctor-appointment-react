@@ -5,12 +5,15 @@ import MainCallComponent from '../../components/callPages/MainCallComponent'
 import { formatImageFromBackend } from '../../logic/helper/getImageFromBackend'
 import { VoiceCallPageVM } from '../../logic/viewModels'
 import { setCallingVideoDoctor } from '../../redux/videoCallPage/videoCall'
+import { selectVideoCallPageVM } from '../../redux/viewmodels/viewmodels'
 
-const videoCallPageVM = new VoiceCallPageVM()
 
 function VoicecallPage() {
   const user = useAppSelector(s => s.user.value)
   const callingDoctor = useAppSelector(s => s.videoCall.callingDoctor)
+
+  const videoCallPageVM = useAppSelector(selectVideoCallPageVM)
+
 
   const [callTimeStart, setcallTimeStart] = useState(new Date())
   const [callTime, setcallTime] = useState(new Date())

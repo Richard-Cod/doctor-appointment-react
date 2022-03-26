@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import Slider from "react-slick";
+import { useAppSelector } from "../../../app/hooks";
 import { DoctorFeature } from "../../../logic/models";
 import {HomePageVM} from "../../../logic/viewModels";
+import { selectHomePageVM } from "../../../redux/viewmodels/viewmodels";
 
-const homePageVM = new HomePageVM()
 
 function PartieSlider() {
   const [features, setfeatures] = useState<DoctorFeature[]>()
+  const homePageVM = useAppSelector(selectHomePageVM)
 
   useEffect(() => {
     const asyncFunc = async () => {

@@ -7,12 +7,15 @@ import AuthLayout from "../../templates/layout/AuthLayout"
 import {Link} from "react-router-dom"
 
 import { useNavigate } from "react-router-dom";
+import { useAppSelector } from "../../app/hooks";
+import { selectLoginPageVM } from "../../redux/viewmodels/viewmodels";
 
 
-const loginPageVM = new LoginPageVM()
 
 function Form({label} : {label : string}) {
   const navigate = useNavigate();
+  const loginPageVM = useAppSelector(selectLoginPageVM)
+
   
     const formik = useFormik({
         initialValues: loginPageVM.initialValues,
@@ -47,6 +50,8 @@ function Form({label} : {label : string}) {
 
 function LoginPage() {
     const label = "login"
+    const loginPageVM = useAppSelector(selectLoginPageVM)
+
     return (
         <AuthLayout label={label}>
           <Form label={label} />

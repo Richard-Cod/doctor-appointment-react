@@ -5,8 +5,8 @@ import { Message , User} from "../../../logic/models"
 import SocketManager from "../../../logic/sockets"
 import {ChatPageVM} from "../../../logic/viewModels"
 import { addNewMessage, setWrittingUserId } from "../../../redux/chatWithDoctor/chatWithDoctor"
+import { selectChatPageVM } from "../../../redux/viewmodels/viewmodels"
 
-const chatPageVM = new ChatPageVM()
 
 function ChatFooter() {
     const dispatch = useAppDispatch()
@@ -14,6 +14,8 @@ function ChatFooter() {
     const currentChattingUser = useAppSelector((s) => s.chatWithDoctor.currentChattingUser)
     const manager = useRef(new SocketManager())
     const [inputContent, setinputContent] = useState("second")
+    
+    const chatPageVM = useAppSelector(selectChatPageVM)
 
     useEffect(() => {
         manager.current.connect()

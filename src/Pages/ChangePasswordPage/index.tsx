@@ -1,13 +1,17 @@
 import { useFormik } from 'formik';
+import { useAppSelector } from '../../app/hooks';
 import Input from '../../components/shared/Input';
 import {ChangePasswordPageVM} from '../../logic/viewModels';
+import { selectChangePasswordPageVM } from '../../redux/viewmodels/viewmodels';
 import ProfilLayout from '../../templates/layout/ProfilLayout';
 
-const changePasswordPageVM = new  ChangePasswordPageVM()
 
 
 
 function Form() {
+
+    const changePasswordPageVM = useAppSelector(selectChangePasswordPageVM)
+
     const formik = useFormik({
         initialValues: changePasswordPageVM.initialValues,
         validationSchema: changePasswordPageVM.validationSchema,
